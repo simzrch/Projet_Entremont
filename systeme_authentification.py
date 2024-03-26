@@ -2,7 +2,7 @@ from Niv1 import Niv1
 from Niv3 import Niv3
 from Niv2 import Niv2
 import mysql.connector
-
+import hashlib
 
 
 class systemeAuthentification:
@@ -11,19 +11,36 @@ class systemeAuthentification:
         self.cursor = self.conn.cursor()
         
 
-    def verifier_authentification(self, username, password):
+
+
+    def hash_password(self, password):
+        # Convertir le mot de passe en bytes
+        password_bytes = password.encode('utf-8')
         
+        # Calculer le hachage SHA-256
+        hashed_password = hashlib.sha256(password_bytes).hexdigest()
+        
+        return hashed_password
+
+
+
+
+    def verifier_authentification(self, username, password):
+        hashed_password = self.hash_password(password)
+
         query = "SELECT * FROM mdp WHERE username = %s AND password = %s"
-        self.cursor.execute(query, (username, password))
+        self.cursor.execute(query, (username, hashed_password))
         rows = self.cursor.fetchall()
         #for row in rows:
             #print('{0} : {1} - {2}'.format(row[0], row[1], row[2])) #Affiche les données
         #print("Nombre de lignes dans le tableau rows :", len(rows))
         if len(rows) == 0 :
             print("identifiant invalide")
+            print (len(rows))
         else :
             print(("Authentification reussie test"))
             print(rows)
+            print (len(rows))
         
         
         
