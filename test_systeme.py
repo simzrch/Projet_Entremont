@@ -13,4 +13,5 @@ while True:
     resultat = auth_system.verifier_authentification(username, password)
     print(resultat)
 
-    auth_system.conn.close()
+    
+auth_system.conn.close()
