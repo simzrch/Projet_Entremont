@@ -161,7 +161,7 @@
       <widget class="QLineEdit" name="lineEdit1"/>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit_2"/>
+      <widget class="QLineEdit" name="lineEdit2"/>
      </item>
     </layout>
    </item>
