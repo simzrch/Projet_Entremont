@@ -3,17 +3,32 @@ from PySide6.QtCore import Qt
 from PySide6.QtUiTools import QUiLoader
 import mysql.connector
 
-class MainWindow(QMainWindow):
+class Page:
+    def __init__(self, ui_file):
+        self.loader = QUiLoader()
+        self.ui = self.loader.load(ui_file, None)
+        self.setup_ui_connections()
+
+    def setup_ui_connections(self):
+        raise NotImplementedError("La méthode setup_ui_connections doit être implémentée dans les sous-classes.")
+
+    def show(self):
+        self.ui.show()
+
+    def hide(self):
+        self.ui.hide()
+
+class MainWindow(Page):
     def __init__(self, data):
-        super(MainWindow, self).__init__()
+        super(Page, self).__init__()
         # Charger le fichier .ui
         loader = QUiLoader()
         self.ui = loader.load("TableauB.ui")
-        self.setCentralWidget(self.ui)
 
         # Récupérer le widget de tableau depuis le fichier .ui
         self.table_widget = self.ui.findChild(QTableWidget, "tableWidget")
         self.line_edit = self.ui.findChild(QLineEdit, "lineEdit1")
+        self.line_edit2 = self.ui.findChild(QLineEdit, "lineEdit2")
 
         # Remplir le tableau avec les données
         self.populate_table(data)
@@ -30,12 +45,22 @@ class MainWindow(QMainWindow):
             for col_idx, cell_data in enumerate(row_data):
                 item = QTableWidgetItem(str(cell_data))
                 self.table_widget.setItem(row_idx, col_idx, item)
+                
 
-    def update_line_edit(self, row, column):
+    def update_line_edit(self, row):
         # Récupérer la valeur de la cellule sélectionnée et l'afficher dans le QLineEdit
-        item = self.table_widget.item(row, column)
+
+        item_2 = self.table_widget.item(row, 1)
+        self.line_edit2.setText(item_2.text())
+        if item_2 is not None:
+         self.line_edit2.setText(item_2.text())
+    
+        item = self.table_widget.item(row, 0)
+        self.line_edit.setText(item.text())
         if item is not None:
             self.line_edit.setText(item.text())
+
+
 
 
 def fetch_data_from_mysql():
@@ -46,15 +71,23 @@ def fetch_data_from_mysql():
         password="root",
         database="test_proje_entremont"
     )
-    cursor = connection.cursor()
+    #cursor = connection.cursor()
 
+    return connection
+
+def fetch_data_from_mysql2(connection, i):
+    cursor = connection.cursor()
+    if i == 0 :
     # Execute SQL query
-    cursor.execute("SELECT * FROM Feuil1")
-    rows = cursor.fetchall()
+        cursor.execute("SELECT * FROM Feuil1")
+        rows = cursor.fetchall()
+    else: 
+        cursor.execute("SELECT * FROM Feuil1 WHERE Origine = 'Plan actions général'")
+        rows = cursor.fetchall()
 
 
     # Close connection
-    connection.close()
+    #connection.close()
 
     return rows
 
