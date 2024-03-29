@@ -1,9 +1,10 @@
 from PySide6.QtUiTools import QUiLoader
-from PySide6.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget, QPushButton
-import sys
+from PySide6.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QMessageBox
 from PySide6 import QtWidgets
-
-
+import sys
+from systeme_authentification import systemeAuthentification
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QKeyEvent
 class Page:
     def __init__(self, ui_file):
         self.loader = QUiLoader()
@@ -20,13 +21,16 @@ class Page:
         self.ui.hide()
 
 class AccueilPage(Page):
-    def __init__(self, ui_file):
+    def __init__(self, ui_file, auth_system):
         super().__init__(ui_file)
         self.ui.setWindowTitle("Accueil")
+        self.auth_system = auth_system
+        self.login_window = None
 
     def setup_ui_connections(self):
         self.ui.ButtonQualiter.clicked.connect(self.domaine_qualiter)
         self.ui.ButtonHygiene.clicked.connect(self.domaine_hygiene)
+        self.ui.ButtonRestriction.clicked.connect(self.login)
 
     def domaine_qualiter(self):
         qualite_page.show()
@@ -35,6 +39,15 @@ class AccueilPage(Page):
     def domaine_hygiene(self):
         hygiene_page.show()
         self.hide()
+
+    def login(self):
+        print("gg")      
+        self.login_window = LoginWindow(self.auth_system, self)
+        self.login_window.show()
+
+    def hide_restriction_button(self):
+        self.ui.ButtonRestriction.hide()
+        self.restriction_button_hidden = True
 
 class QualitePage(Page):
     def __init__(self, ui_file):
@@ -52,6 +65,7 @@ class QualitePage(Page):
     def qualiter_vers_hygiene(self):
         hygiene_page.show()
         self.hide()
+
 
 class HygienePage(Page):
     def __init__(self, ui_file):
@@ -74,14 +88,59 @@ class HygienePage(Page):
     def domaine_risques(self):
         print("test button")
 
+class LoginWindow(QWidget):
+    def __init__(self, auth_system, accueil_page):
+        super().__init__()
+
+        self.auth_system = auth_system
+        self.accueil_page = accueil_page  # Stocker la référence à AccueilPage
+
+        self.setWindowTitle("Login")
+        self.setGeometry(100, 100, 300, 150)
+
+        layout = QVBoxLayout()
+
+        self.label_username = QLabel("Username:")
+        self.textbox_username = QLineEdit()
+        layout.addWidget(self.label_username)
+        layout.addWidget(self.textbox_username)
+
+        self.label_password = QLabel("Password:")
+        self.textbox_password = QLineEdit()
+        self.textbox_password.setEchoMode(QLineEdit.Password)
+        layout.addWidget(self.label_password)
+        layout.addWidget(self.textbox_password)
+
+        self.button_login = QPushButton("Login")
+        self.button_login.clicked.connect(self.check_login)
+        layout.addWidget(self.button_login)
+
+        self.setLayout(layout)
+
+    def check_login(self):
+        username = self.textbox_username.text()
+        password = self.textbox_password.text()
+
+        if self.auth_system.verifier_authentification(username, password):
+            QMessageBox.information(self, "Login réussie", f"Welcome, {username}! de {self.auth_system.logged_in_user.role}")
+            self.close()  # Fermer la fenêtre de dialogue après le clic sur OK
+            self.accueil_page.ui.ButtonRestriction.hide()  # Masquer le bouton de restriction dans AccueilPage
+        else:
+            QMessageBox.warning(self, "Login Failed", "Invalid username or password.")
+
+        
+
+
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
 
-    accueil_page = AccueilPage("accueil.ui")
+    auth_system = systemeAuthentification()
+
+    accueil_page = AccueilPage("accueil.ui", auth_system)
     qualite_page = QualitePage("qualite.ui")
     hygiene_page = HygienePage("hygiene.ui")
 
     accueil_page.show()
-
+    
     sys.exit(app.exec())
 
