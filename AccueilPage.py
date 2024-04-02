@@ -5,6 +5,8 @@ import sys
 from systeme_authentification import systemeAuthentification
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QKeyEvent
+from PySide6.QtWidgets import QApplication, QWidget, QPushButton, QHBoxLayout, QVBoxLayout
+
 class Page:
     def __init__(self, ui_file):
         self.loader = QUiLoader()
@@ -20,12 +22,29 @@ class Page:
     def hide(self):
         self.ui.hide()
 
+
 class AccueilPage(Page):
     def __init__(self, ui_file, auth_system):
         super().__init__(ui_file)
         self.ui.setWindowTitle("Accueil")
         self.auth_system = auth_system
         self.login_window = None
+    
+        # Créer le bouton de déconnexion
+        self.logout_button = QPushButton("Logout")
+        self.logout_button.setFixedSize(60, 20)  # Définir une taille fixe pour le bouton
+        self.logout_button.clicked.connect(self.logout)  # Connecter le bouton à la méthode logout
+
+        # Ajouter le bouton à la disposition verticale existante
+        self.ui.layout().addWidget(self.logout_button)
+
+    def logout(self):
+        if self.auth_system.logout():
+            print("Déconnexion réussie")
+            self.ui.ButtonRestriction.show()  # Afficher le bouton Restriction après la déconnexion
+            
+        #else:
+            #print("Aucun utilisateur connecté")
 
     def setup_ui_connections(self):
         self.ui.ButtonQualiter.clicked.connect(self.domaine_qualiter)
@@ -41,7 +60,7 @@ class AccueilPage(Page):
         self.hide()
 
     def login(self):
-        print("gg")      
+        print("gg")
         self.login_window = LoginWindow(self.auth_system, self)
         self.login_window.show()
 
@@ -49,14 +68,21 @@ class AccueilPage(Page):
         self.ui.ButtonRestriction.hide()
         self.restriction_button_hidden = True
 
+
 class QualitePage(Page):
-    def __init__(self, ui_file):
+    def __init__(self, ui_file, auth_system):
         super().__init__(ui_file)
         self.ui.setWindowTitle("Qualité")
+        self.auth_system = auth_system
+      
+        self.ui.ButtonRestriction.clicked.connect(self.logout)
+        #print(self.auth_system.logged_in_user.role)
+        QMessageBox.information(self, "Login réussie", f"Welcome,{self.auth_system.logged_in_user.role}")
 
     def setup_ui_connections(self):
         self.ui.ButtonAccueil.clicked.connect(self.qualiter_vers_accueil)
         self.ui.ButtonHygiene.clicked.connect(self.qualiter_vers_hygiene)
+        
 
     def qualiter_vers_accueil(self):
         accueil_page.show()
@@ -66,11 +92,16 @@ class QualitePage(Page):
         hygiene_page.show()
         self.hide()
 
+    def logout(self):
+        if self.auth_system.logout():
+            print("Déconnexion réussie")
+    
 
 class HygienePage(Page):
-    def __init__(self, ui_file):
+    def __init__(self, ui_file, auth_system):
         super().__init__(ui_file)
         self.ui.setWindowTitle("Hygiène")
+        self.auth_system = auth_system
 
     def setup_ui_connections(self):
         self.ui.ButtonAccueil.clicked.connect(self.hygiene_vers_accueil)
@@ -87,6 +118,7 @@ class HygienePage(Page):
 
     def domaine_risques(self):
         print("test button")
+
 
 class LoginWindow(QWidget):
     def __init__(self, auth_system, accueil_page):
@@ -125,10 +157,12 @@ class LoginWindow(QWidget):
             QMessageBox.information(self, "Login réussie", f"Welcome, {username}! de {self.auth_system.logged_in_user.role}")
             self.close()  # Fermer la fenêtre de dialogue après le clic sur OK
             self.accueil_page.ui.ButtonRestriction.hide()  # Masquer le bouton de restriction dans AccueilPage
+
+            return self.auth_system.logged_in_user.role 
+                
+        
         else:
             QMessageBox.warning(self, "Login Failed", "Invalid username or password.")
-
-        
 
 
 if __name__ == "__main__":
@@ -137,10 +171,10 @@ if __name__ == "__main__":
     auth_system = systemeAuthentification()
 
     accueil_page = AccueilPage("accueil.ui", auth_system)
-    qualite_page = QualitePage("qualite.ui")
-    hygiene_page = HygienePage("hygiene.ui")
+    qualite_page = QualitePage("qualite.ui", auth_system )
+    hygiene_page = HygienePage("hygiene.ui", auth_system)
 
     accueil_page.show()
-    
+
     sys.exit(app.exec())
 
