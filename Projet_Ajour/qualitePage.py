@@ -3,7 +3,7 @@ from PySide6.QtUiTools import QUiLoader
 
 
 class QualitePage(Page):
-    def __init__(self, auth_system, accueil_origine):
+    def __init__(self, accueil_origine):
 
         super(Page, self).__init__()
         # Charger le fichier .ui
@@ -11,7 +11,7 @@ class QualitePage(Page):
         self.ui = loader.load("qualite.ui")
 
         self.ui.setWindowTitle("Qualite")
-        self.auth_system = auth_system
+        self.auth_system = accueil_origine.auth_system
         self.accueilOrigine = accueil_origine
         self.setup_ui_connections()
 

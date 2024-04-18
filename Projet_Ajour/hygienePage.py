@@ -2,7 +2,7 @@ from Page import Page
 from PySide6.QtUiTools import QUiLoader
 
 class HygienePage(Page):
-    def __init__(self, auth_system, accueil_origine):
+    def __init__(self, accueil_origine):
 
         super(Page, self).__init__()
         # Charger le fichier .ui
@@ -11,7 +11,7 @@ class HygienePage(Page):
         self.ui = loader.load("hygiene.ui")
         self.ui.setWindowTitle("Hygiene")
         self.stackedWidget = self.ui.stackedWidget
-        self.auth_system = auth_system
+        self.auth_system = accueil_origine.auth_system
         self.accueilOrigine = accueil_origine
         self.setup_ui_connections()
 
@@ -59,6 +59,6 @@ class HygienePage(Page):
         self.hide()
 
     def logout(self):
-        
+
         if self.auth_system.logout():
             print("Déconnexion réussie")
