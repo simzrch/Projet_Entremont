@@ -1,5 +1,6 @@
 from Page import Page
 from PySide6.QtUiTools import QUiLoader
+from PAG import PAG
 
 class HygienePage(Page):
     def __init__(self, accueil_origine):
@@ -14,6 +15,8 @@ class HygienePage(Page):
         self.auth_system = accueil_origine.auth_system
         self.accueilOrigine = accueil_origine
         self.setup_ui_connections()
+
+        self.PAG = PAG(self)
 
 
     def setup_ui_connections(self):
@@ -42,11 +45,7 @@ class HygienePage(Page):
     
     def afficher_PAG(self):
 
-        loader = QUiLoader()
-
-        File = loader.load("PAG.ui")
-        self.stackedWidget.addWidget(File)
-        self.stackedWidget.setCurrentWidget(File)
+        self.PAG.Affichage()
 
     def hygiene_vers_accueil(self):
 
