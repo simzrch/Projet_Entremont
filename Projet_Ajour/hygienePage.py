@@ -1,6 +1,7 @@
 from Page import Page
 from PySide6.QtUiTools import QUiLoader
 from PAG import PAG
+from RDR import RDR
 
 class HygienePage(Page):
     def __init__(self, accueil_origine):
@@ -17,6 +18,7 @@ class HygienePage(Page):
         self.setup_ui_connections()
 
         self.PAG = PAG(self)
+        self.RDR = RDR(self)
 
 
     def setup_ui_connections(self):
@@ -31,11 +33,7 @@ class HygienePage(Page):
 
     def afficher_Risque(self):
 
-        loader = QUiLoader()
-
-        File = loader.load("RDR.ui")
-        self.stackedWidget.addWidget(File)
-        self.stackedWidget.setCurrentWidget(File)
+        self.RDR.Affichage()
 
     def afficher_Unique(self):
         pass
