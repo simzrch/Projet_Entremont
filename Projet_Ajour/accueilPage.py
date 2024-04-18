@@ -5,6 +5,7 @@ from Page import Page
 from LoginWindow import LoginWindow
 from qualitePage import QualitePage
 from hygienePage import HygienePage
+from perimetresPage import PerimetresPage
 
 class AccueilPage(Page):
 
@@ -29,22 +30,23 @@ class AccueilPage(Page):
         self.ui.layout().addWidget(self.logout_button)
          
         
-
-        self.qualite_page = QualitePage(auth_system, self)
-        self.hygiene_page = HygienePage(auth_system, self)
+        self.qualite_page = QualitePage(self)
+        self.hygiene_page = HygienePage(self)
+        self.perimetres_page = PerimetresPage(self)
 
 
         self.ui.ButtonQualiter.clicked.connect(self.domaine_qualiter)
         self.ui.ButtonHygiene.clicked.connect(self.domaine_hygiene)
         self.ui.ButtonRestriction.clicked.connect(self.login)
+        self.ui.ButtonParametres.clicked.connect(self.domaine_parametres)
 
     def logout(self):
         if self.auth_system.logout():
             print("Déconnexion réussie")
             self.ui.ButtonRestriction.show()  # Afficher le bouton Restriction après la déconnexion
             
-        #else:
-            #print("Aucun utilisateur connecté")
+    #    else:
+    #        print("Aucun utilisateur connecté")
 
     def domaine_qualiter(self):
 
@@ -64,3 +66,8 @@ class AccueilPage(Page):
     def hide_restriction_button(self):
         self.ui.ButtonRestriction.hide()
         self.restriction_button_hidden = True
+
+    def domaine_parametres(self):
+
+        self.perimetres_page.show()
+        self.hide()
