@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>805</width>
-    <height>633</height>
+    <height>812</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -22,26 +22,131 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_3">
+     <item row="23" column="0" rowspan="3" colspan="2">
+      <widget class="QTextEdit" name="textEdit_3"/>
+     </item>
+     <item row="28" column="0">
+      <widget class="QLabel" name="label_16">
        <property name="text">
-        <string>Origine de l'action:</string>
+        <string>Date de réalisation:</string>
        </property>
       </widget>
      </item>
-     <item row="8" column="0">
-      <widget class="QComboBox" name="comboBox_4"/>
+     <item row="27" column="0">
+      <widget class="QComboBox" name="comboBox_7"/>
      </item>
-     <item row="16" column="0" colspan="2">
+     <item row="20" column="2">
+      <spacer name="verticalSpacer_5">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="26" column="1">
+      <widget class="QLabel" name="label_18">
+       <property name="text">
+        <string>Délai de réalisation</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QComboBox" name="comboBox_3"/>
+     </item>
+     <item row="29" column="1">
+      <widget class="QLineEdit" name="lineEdit_3"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QComboBox" name="comboBox_2"/>
+     </item>
+     <item row="8" column="1">
+      <widget class="QTextEdit" name="textEdit_4"/>
+     </item>
+     <item row="17" column="0" colspan="2">
+      <widget class="QLabel" name="label_13">
+       <property name="text">
+        <string>Mesure:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="lineEdit"/>
+     </item>
+     <item row="29" column="0">
+      <widget class="QLineEdit" name="lineEdit_2"/>
+     </item>
+     <item row="28" column="1">
+      <widget class="QLabel" name="label_17">
+       <property name="text">
+        <string>Evaluation de l'efficacité de l'action:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="1">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>------------------------------------------</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>Responsable service du secteur:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="21" column="2">
+      <spacer name="verticalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="30" column="0" colspan="3">
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Valider</string>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="2" rowspan="2">
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>20000</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="18" column="0" rowspan="3" colspan="2">
       <widget class="QTextEdit" name="textEdit_2"/>
      </item>
-     <item row="20" column="1">
-      <widget class="QLineEdit" name="lineEdit_4"/>
-     </item>
-     <item row="7" column="1">
-      <widget class="QLabel" name="label_6">
+     <item row="11" column="0">
+      <widget class="QLabel" name="label_11">
        <property name="text">
-        <string>Ligne/Poste:</string>
+        <string>Type (PA/PS/RQ/NC)</string>
        </property>
       </widget>
      </item>
@@ -52,12 +157,61 @@
        </property>
       </widget>
      </item>
-     <item row="15" column="0" colspan="2">
-      <widget class="QLabel" name="label_13">
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_3">
        <property name="text">
-        <string>Mesure:</string>
+        <string>Origine de l'action:</string>
        </property>
       </widget>
+     </item>
+     <item row="24" column="2">
+      <spacer name="verticalSpacer_6">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="19" column="2">
+      <spacer name="verticalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Rédacteur:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="22" column="0" colspan="2">
+      <widget class="QLabel" name="label_14">
+       <property name="text">
+        <string>Commentaire(s):</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="0">
+      <widget class="QComboBox" name="comboBox_6"/>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
@@ -69,63 +223,53 @@
      <item row="2" column="0">
       <widget class="QComboBox" name="comboBox"/>
      </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="label_4">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
        <property name="text">
-        <string>Rédacteur:</string>
+        <string>Date:</string>
        </property>
       </widget>
      </item>
-     <item row="20" column="0">
-      <widget class="QComboBox" name="comboBox_7"/>
-     </item>
-     <item row="22" column="1">
-      <widget class="QLineEdit" name="lineEdit_3"/>
-     </item>
-     <item row="4" column="0">
-      <widget class="QComboBox" name="comboBox_2"/>
-     </item>
-     <item row="19" column="1">
-      <widget class="QLabel" name="label_18">
-       <property name="text">
-        <string>Délai de réalisation</string>
+     <item row="25" column="2">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
        </property>
-      </widget>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
      </item>
-     <item row="19" column="0">
+     <item row="26" column="0">
       <widget class="QLabel" name="label_15">
        <property name="text">
         <string>Responsable de l'action:</string>
        </property>
       </widget>
      </item>
-     <item row="22" column="0">
-      <widget class="QLineEdit" name="lineEdit_2"/>
+     <item row="14" column="0" rowspan="3" colspan="2">
+      <widget class="QTextEdit" name="textEdit"/>
      </item>
-     <item row="8" column="1">
-      <widget class="QTextEdit" name="textEdit_4"/>
-     </item>
-     <item row="9" column="0">
-      <widget class="QLabel" name="label_7">
+     <item row="10" column="0">
+      <widget class="QLabel" name="label_8">
        <property name="text">
-        <string>Responsable service du secteur:</string>
+        <string>Responsable activité du secteur:</string>
        </property>
       </widget>
      </item>
-     <item row="6" column="0">
-      <widget class="QComboBox" name="comboBox_3"/>
+     <item row="8" column="0">
+      <widget class="QComboBox" name="comboBox_4"/>
      </item>
-     <item row="13" column="0" colspan="2">
-      <widget class="QLabel" name="label_12">
+     <item row="7" column="1">
+      <widget class="QLabel" name="label_6">
        <property name="text">
-        <string>Constat:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="21" column="0">
-      <widget class="QLabel" name="label_16">
-       <property name="text">
-        <string>Date de réalisation:</string>
+        <string>Ligne/Poste:</string>
        </property>
       </widget>
      </item>
@@ -136,64 +280,13 @@
        </property>
       </widget>
      </item>
-     <item row="18" column="0" colspan="2">
-      <widget class="QTextEdit" name="textEdit_3"/>
+     <item row="27" column="1">
+      <widget class="QLineEdit" name="lineEdit_4"/>
      </item>
-     <item row="10" column="0">
-      <widget class="QLabel" name="label_8">
+     <item row="13" column="0" colspan="2">
+      <widget class="QLabel" name="label_12">
        <property name="text">
-        <string>Responsable activité du secteur:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEdit"/>
-     </item>
-     <item row="12" column="0">
-      <widget class="QComboBox" name="comboBox_6"/>
-     </item>
-     <item row="17" column="0" colspan="2">
-      <widget class="QLabel" name="label_14">
-       <property name="text">
-        <string>Commentaire(s):</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Date:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="10" column="1">
-      <widget class="QLabel" name="label_10">
-       <property name="text">
-        <string>------------------------------------------</string>
-       </property>
-      </widget>
-     </item>
-     <item row="11" column="0">
-      <widget class="QLabel" name="label_11">
-       <property name="text">
-        <string>Type (PA/PS/RQ/NC)</string>
-       </property>
-      </widget>
-     </item>
-     <item row="21" column="1">
-      <widget class="QLabel" name="label_17">
-       <property name="text">
-        <string>Evaluation de l'efficacité de l'action:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="14" column="0" colspan="2">
-      <widget class="QTextEdit" name="textEdit"/>
-     </item>
-     <item row="23" column="0" colspan="3">
-      <widget class="QPushButton" name="pushButton">
-       <property name="text">
-        <string>Valider</string>
+        <string>Constat:</string>
        </property>
       </widget>
      </item>

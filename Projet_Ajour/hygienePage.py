@@ -1,6 +1,5 @@
 from Page import Page
 from PySide6.QtUiTools import QUiLoader
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QWidget, QLabel, QTabWidget, QTableWidget, QTableWidgetItem
 
 class HygienePage(Page):
     def __init__(self, auth_system, accueil_origine):
@@ -18,6 +17,7 @@ class HygienePage(Page):
 
 
     def setup_ui_connections(self):
+
         self.ui.ButtonAccueil.clicked.connect(self.hygiene_vers_accueil)
         self.ui.ButtonQualiter.clicked.connect(self.hygiene_vers_qualiter)
         self.ui.ButtonRisques.clicked.connect(self.afficher_Risque)
@@ -27,6 +27,7 @@ class HygienePage(Page):
         self.ui.ButtonRestriction.clicked.connect(self.logout)
 
     def afficher_Risque(self):
+
         loader = QUiLoader()
 
         File = loader.load("RDR.ui")
@@ -40,6 +41,7 @@ class HygienePage(Page):
         pass
     
     def afficher_PAG(self):
+
         loader = QUiLoader()
 
         File = loader.load("PAG.ui")
@@ -57,5 +59,6 @@ class HygienePage(Page):
         self.hide()
 
     def logout(self):
+        
         if self.auth_system.logout():
             print("Déconnexion réussie")
