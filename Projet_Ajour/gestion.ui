@@ -65,26 +65,6 @@
     <string>Identification zones</string>
    </property>
   </widget>
-  <widget class="QListView" name="listView_2">
-   <property name="geometry">
-    <rect>
-     <x>620</x>
-     <y>190</y>
-     <width>451</width>
-     <height>131</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QListView" name="listView_3">
-   <property name="geometry">
-    <rect>
-     <x>620</x>
-     <y>370</y>
-     <width>451</width>
-     <height>351</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
@@ -118,7 +98,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Gestion des accès</string>
+    <string>Listes des accès</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -285,6 +265,104 @@
    <property name="alignment">
     <set>Qt::AlignCenter</set>
    </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>190</y>
+     <width>451</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QAbstractScrollArea::AdjustIgnored</enum>
+   </property>
+   <row>
+    <property name="text">
+     <string/>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </row>
+   <column>
+    <property name="text">
+     <string>Nouvelle colonne</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Prénom</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Mot de passe</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Mail</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>370</y>
+     <width>451</width>
+     <height>351</height>
+    </rect>
+   </property>
+   <row>
+    <property name="text">
+     <string/>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>4</string>
+    </property>
+   </row>
+   <column>
+    <property name="text">
+     <string>Module</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Hygiène</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Qualité</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>RSE</string>
+    </property>
+   </column>
   </widget>
  </widget>
  <resources/>
