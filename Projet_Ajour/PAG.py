@@ -11,7 +11,7 @@ class PAG(Page):
         super(Page, self).__init__()
         # Charger le fichier .ui
         loader = QUiLoader()
-        self.ui = loader.load("PAG3.ui")
+        self.ui = loader.load("PAG.ui")
         self.hygiene = hygiene
         self.ui.ButtonValide.clicked.connect(self.Envoie_Données)
         self.Import_Base = Import_Base()
