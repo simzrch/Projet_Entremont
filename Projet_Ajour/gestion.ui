@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1180</width>
+    <width>1280</width>
     <height>780</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
@@ -22,6 +28,11 @@
      <height>41</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
    <property name="text">
     <string>Accueil</string>
    </property>
@@ -29,11 +40,16 @@
   <widget class="QPushButton" name="ButtonGestion">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>200</x>
      <y>90</y>
      <width>191</width>
      <height>51</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Gestion des accès</string>
@@ -42,11 +58,16 @@
   <widget class="QPushButton" name="ButtonPerimetres">
    <property name="geometry">
     <rect>
-     <x>490</x>
+     <x>480</x>
      <y>90</y>
      <width>191</width>
      <height>51</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Périmètres</string>
@@ -55,40 +76,25 @@
   <widget class="QPushButton" name="ButtonZones">
    <property name="geometry">
     <rect>
-     <x>820</x>
+     <x>770</x>
      <y>90</y>
      <width>191</width>
      <height>51</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
    <property name="text">
     <string>Identification zones</string>
-   </property>
-  </widget>
-  <widget class="QListView" name="listView_2">
-   <property name="geometry">
-    <rect>
-     <x>620</x>
-     <y>190</y>
-     <width>451</width>
-     <height>131</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QListView" name="listView_3">
-   <property name="geometry">
-    <rect>
-     <x>620</x>
-     <y>370</y>
-     <width>451</width>
-     <height>351</height>
-    </rect>
    </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>480</x>
+     <x>470</x>
      <y>30</y>
      <width>211</width>
      <height>41</height>
@@ -106,9 +112,9 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>180</y>
-     <width>481</width>
+     <x>20</x>
+     <y>150</y>
+     <width>521</width>
      <height>51</height>
     </rect>
    </property>
@@ -117,8 +123,16 @@
      <pointsize>18</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    background-color: gray;
+	color: #ffffff; /* Couleur du texte (blanc dans cet exemple) */
+    border: none;
+}
+</string>
+   </property>
    <property name="text">
-    <string>Gestion des accès</string>
+    <string>Listes des accès</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -130,10 +144,10 @@
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>231</y>
-     <width>471</width>
-     <height>451</height>
+     <x>20</x>
+     <y>201</y>
+     <width>521</width>
+     <height>491</height>
     </rect>
    </property>
    <row>
@@ -181,32 +195,43 @@
      <string>Acces périmètre</string>
     </property>
    </column>
+   <column>
+    <property name="text">
+     <string>Bâtiment</string>
+    </property>
+   </column>
   </widget>
   <widget class="QLineEdit" name="lineEditNom">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>700</y>
+     <x>40</x>
+     <y>710</y>
      <width>113</width>
      <height>22</height>
     </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEditPrenom">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>700</y>
+     <x>160</x>
+     <y>710</y>
      <width>113</width>
      <height>22</height>
     </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEditMail">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>700</y>
+     <x>280</x>
+     <y>710</y>
      <width>113</width>
      <height>22</height>
     </rect>
@@ -215,8 +240,8 @@
   <widget class="QLineEdit" name="lineEditAcces">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>700</y>
+     <x>400</x>
+     <y>710</y>
      <width>113</width>
      <height>22</height>
     </rect>
@@ -225,8 +250,8 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>679</y>
+     <x>40</x>
+     <y>689</y>
      <width>111</width>
      <height>21</height>
     </rect>
@@ -241,8 +266,8 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>680</y>
+     <x>160</x>
+     <y>690</y>
      <width>111</width>
      <height>21</height>
     </rect>
@@ -257,8 +282,8 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>680</y>
+     <x>280</x>
+     <y>690</y>
      <width>111</width>
      <height>21</height>
     </rect>
@@ -273,8 +298,8 @@
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>680</y>
+     <x>400</x>
+     <y>690</y>
      <width>111</width>
      <height>21</height>
     </rect>
@@ -286,6 +311,140 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QTableWidget" name="tableWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>200</y>
+     <width>421</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QAbstractScrollArea::AdjustIgnored</enum>
+   </property>
+   <row>
+    <property name="text">
+     <string/>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </row>
+   <column>
+    <property name="text">
+     <string>Nouvelle colonne</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Prénom</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Mot de passe</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Mail</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>380</y>
+     <width>421</width>
+     <height>351</height>
+    </rect>
+   </property>
+   <row>
+    <property name="text">
+     <string/>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>4</string>
+    </property>
+   </row>
+   <column>
+    <property name="text">
+     <string>Module</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Hygiène</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Qualité</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>RSE</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QPushButton" name="ButtonEntrer">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>740</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Entrer</string>
+   </property>
+  </widget>
+  <zorder>ButtonAccueil</zorder>
+  <zorder>ButtonGestion</zorder>
+  <zorder>ButtonPerimetres</zorder>
+  <zorder>ButtonZones</zorder>
+  <zorder>label</zorder>
+  <zorder>tableWidget</zorder>
+  <zorder>lineEditNom</zorder>
+  <zorder>lineEditPrenom</zorder>
+  <zorder>lineEditMail</zorder>
+  <zorder>lineEditAcces</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_4</zorder>
+  <zorder>label_5</zorder>
+  <zorder>label_6</zorder>
+  <zorder>tableWidget_2</zorder>
+  <zorder>tableWidget_3</zorder>
+  <zorder>ButtonEntrer</zorder>
+  <zorder>label_2</zorder>
  </widget>
  <resources/>
  <connections/>

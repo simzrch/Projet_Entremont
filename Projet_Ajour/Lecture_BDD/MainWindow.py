@@ -2,6 +2,7 @@ from PySide6.QtWidgets import QLineEdit, QPushButton, QTableWidget, QTableWidget
 from PySide6.QtUiTools import QUiLoader
 import mysql.connector
 from Page import Page
+from Import_Base import Import_Base
 
 class MainWindow(Page):
     def __init__(self, data, import_base):
@@ -9,6 +10,8 @@ class MainWindow(Page):
         # Charger le fichier .ui
         loader = QUiLoader()
         self.ui = loader.load("TableauB.ui")
+        
+        self.Import_BDD = Import_Base()
 
         # Récupérer le widget de tableau depuis le fichier .ui
         self.table_button = self.ui.findChild(QPushButton, "pushButton")
@@ -37,12 +40,7 @@ class MainWindow(Page):
 
     def populate_table2(self):
 
-        connection = mysql.connector.connect(
-            host="192.168.1.213",
-            user="root",
-            password="root",
-            database="test_proje_entremont"
-        )
+        connection = self.Import_BDD.Connection_BDD()
         cursor = connection.cursor()
         cursor.execute("SELECT * FROM visiteurs")
         data = cursor.fetchall()
