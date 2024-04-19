@@ -78,7 +78,7 @@
      <x>30</x>
      <y>90</y>
      <width>201</width>
-     <height>461</height>
+     <height>501</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -116,7 +116,7 @@
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>610</y>
+     <y>650</y>
      <width>151</width>
      <height>51</height>
     </rect>
@@ -141,34 +141,36 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget_2">
+  <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>90</y>
-     <width>991</width>
-     <height>461</height>
+     <x>231</x>
+     <y>91</y>
+     <width>731</width>
+     <height>661</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
-    <item>
-     <widget class="QStackedWidget" name="stackedWidget">
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-      <widget class="QWidget" name="page"/>
-      <widget class="QWidget" name="page_2"/>
-     </widget>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="page"/>
+   <widget class="QWidget" name="page_2"/>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>960</x>
+     <y>90</y>
+     <width>258</width>
+     <height>651</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTableWidget" name="tableWidget"/>
     </item>
-    <item>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <widget class="QTableWidget" name="tableWidget"/>
-      </item>
-      <item row="1" column="0">
-       <widget class="QTableView" name="tableView"/>
-      </item>
-     </layout>
+    <item row="1" column="0">
+     <widget class="QTableView" name="tableView"/>
     </item>
    </layout>
   </widget>

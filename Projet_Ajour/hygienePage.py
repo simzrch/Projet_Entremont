@@ -44,6 +44,10 @@ class HygienePage(Page):
     def afficher_PAG(self):
 
         self.PAG.Affichage()
+        self.PAG.Implementation_ComboBox()
+
+
+
 
     def hygiene_vers_accueil(self):
 
