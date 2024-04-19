@@ -29,7 +29,7 @@
   <widget class="QPushButton" name="ButtonGestion">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>190</x>
      <y>90</y>
      <width>191</width>
      <height>51</height>
@@ -42,7 +42,7 @@
   <widget class="QPushButton" name="ButtonPerimetres">
    <property name="geometry">
     <rect>
-     <x>490</x>
+     <x>470</x>
      <y>90</y>
      <width>191</width>
      <height>51</height>
@@ -55,7 +55,7 @@
   <widget class="QPushButton" name="ButtonZones">
    <property name="geometry">
     <rect>
-     <x>820</x>
+     <x>750</x>
      <y>90</y>
      <width>191</width>
      <height>51</height>
@@ -68,8 +68,8 @@
   <widget class="QListView" name="listView_3">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>190</y>
+     <x>570</x>
+     <y>200</y>
      <width>551</width>
      <height>511</height>
     </rect>
@@ -93,13 +93,13 @@
     <string>Périmètres</string>
    </property>
   </widget>
-  <widget class="QTableWidget" name="tableWidget_2">
+  <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>191</y>
-     <width>421</width>
-     <height>511</height>
+     <x>20</x>
+     <y>221</y>
+     <width>521</width>
+     <height>491</height>
     </rect>
    </property>
    <row>
@@ -147,13 +147,18 @@
      <string>Acces périmètre</string>
     </property>
    </column>
+   <column>
+    <property name="text">
+     <string>Bâtiment</string>
+    </property>
+   </column>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>140</y>
-     <width>421</width>
+     <x>20</x>
+     <y>170</y>
+     <width>521</width>
      <height>51</height>
     </rect>
    </property>
@@ -161,6 +166,14 @@
     <font>
      <pointsize>18</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    background-color: gray;
+	color: #ffffff; /* Couleur du texte (blanc dans cet exemple) */
+    border: none;
+}
+</string>
    </property>
    <property name="text">
     <string>Listes des accès</string>

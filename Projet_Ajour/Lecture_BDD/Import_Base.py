@@ -4,8 +4,7 @@ class Import_Base():
     
 
     def __init__(self):
-        #super(Import_Base, self2).__init__()
-        # Connection a la base MySQL
+        
         connection = mysql.connector.connect(
             host="192.168.1.213",
             user="root",
@@ -14,6 +13,16 @@ class Import_Base():
         )
 
         self.conn = connection
+    
+    def Connection_BDD(self):
+        connection = mysql.connector.connect(
+            host="192.168.1.213",
+            user="root",
+            password="root",
+            database="test_proje_entremont"
+        )
+
+        return connection
         
 
     def fetch_data_from_mysql2(self, i):
