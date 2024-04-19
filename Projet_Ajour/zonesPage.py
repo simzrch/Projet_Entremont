@@ -21,6 +21,8 @@ class ZonesPage(Page):
         self.ui.ButtonAccueil.clicked.connect(self.zones_vers_accueil)
         self.ui.ButtonPerimetres.clicked.connect(self.zones_vers_perimetres)
         self.ui.ButtonGestion.clicked.connect(self.zones_vers_gestion)
+        self.ui.ButtonBatA.clicked.connect(self.plan_vers_batimentA)
+        self.ui.ButtonBatB.clicked.connect(self.plan_vers_batimentB)
 
     def zones_vers_accueil(self):
 
@@ -36,3 +38,11 @@ class ZonesPage(Page):
 
         self.perimetre.gestion_page.show()
         self.hide()
+
+    def plan_vers_batimentA(self):
+
+        print("Bâtiment Accueil")
+
+    def plan_vers_batimentB(self):
+
+        print("Bâtiment B")
