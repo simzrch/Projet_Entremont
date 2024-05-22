@@ -18,10 +18,14 @@ class HygienePage(Page):
         self.table_widget = self.ui.tableWidget
         self.auth_system = accueil_origine.auth_system
         self.accueilOrigine = accueil_origine
+        self.Import_BDD = Import_Base()
+
+        connection = self.Import_BDD.Connection_BDD()
+        cursor = connection.cursor()
 
         #-----------
-        self.Import_BDD = Import_Base()
-        self.populate_table()
+        
+        self.populate_table(cursor)
         #----------
 
         self.setup_ui_connections()
@@ -40,10 +44,9 @@ class HygienePage(Page):
         self.ui.ButtonPAG.clicked.connect(self.afficher_PAG)
         self.ui.ButtonRestriction.clicked.connect(self.logout)
 
-    def populate_table(self):
+    def populate_table(self, cursor):
 
-        connection = self.Import_BDD.Connection_BDD()
-        cursor = connection.cursor()
+        
         cursor.execute("SELECT * FROM visiteurs")
         data = cursor.fetchall()
 

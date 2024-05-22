@@ -15,17 +15,13 @@ class PAG(Page):
         self.hygiene = hygiene
         self.ui.ButtonValide.clicked.connect(self.Envoie_Données)
         self.Import_Base = Import_Base()
+        
 
     def Envoie_Données(self):
-            print("Bonjour")
-            connection = mysql.connector.connect(
-            host="192.168.1.213",
-            user="root",
-            password="root",
-            database="test_proje_entremont"
-        )
-            self.conn = connection
+          
+            self.conn = self.Import_Base.Connection_BDD()
             cursor = self.conn.cursor()
+            
             valeur_colonne1 = "valeur1"
             valeur_colonne2 = "valeur2"
             valeur_colonne3 = "valeur3"
@@ -41,7 +37,6 @@ class PAG(Page):
             # Fermer la connexion
             cursor.close()
             self.conn.close()
-            print("Ovoir")
 
     def Affichage(self):
         
@@ -59,8 +54,7 @@ class PAG(Page):
 
     def populate_combobox(self, column_name, table_name, combo_box):
 
-        connection = self.Import_Base.Connection_BDD()
-        self.conn = connection
+        self.conn = self.Import_Base.Connection_BDD()
         cursor = self.conn.cursor()
 
         query = f"SELECT DISTINCT {column_name} FROM {table_name} WHERE {column_name} != ''"
@@ -70,7 +64,9 @@ class PAG(Page):
             if row[0]:
                 combo_box.addItem(row[0])
         cursor.close()
+        self.conn.close()
 
     def clear_all_comboboxes(self):
+
         for widget in self.ui.findChildren(QtWidgets.QComboBox):
             widget.clear()
