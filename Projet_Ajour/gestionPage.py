@@ -60,6 +60,8 @@ class GestionPage(Page):
         cursor.close()
         self.conn.close()
         print("Aurevoir")
+
+        self.populate_table()
         
     def populate_table(self):
 
