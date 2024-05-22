@@ -3,6 +3,7 @@ import sys
 from systeme_authentification import systemeAuthentification
 from accueilPage import AccueilPage
 
+
 if __name__ == "__main__":
     
     app = QtWidgets.QApplication(sys.argv)

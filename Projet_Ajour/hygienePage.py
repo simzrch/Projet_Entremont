@@ -1,5 +1,7 @@
 from Page import Page
 from PySide6.QtUiTools import QUiLoader
+from PySide6.QtWidgets import QLineEdit, QPushButton, QTableWidget, QTableWidgetItem
+from Import_Base import Import_Base
 from PAG import PAG
 from RDR import RDR
 
@@ -13,8 +15,15 @@ class HygienePage(Page):
         self.ui = loader.load("hygiene.ui")
         self.ui.setWindowTitle("Hygiene")
         self.stackedWidget = self.ui.stackedWidget
+        self.table_widget = self.ui.tableWidget
         self.auth_system = accueil_origine.auth_system
         self.accueilOrigine = accueil_origine
+
+        #-----------
+        self.Import_BDD = Import_Base()
+        self.populate_table()
+        #----------
+
         self.setup_ui_connections()
 
         self.PAG = PAG(self)
@@ -31,6 +40,23 @@ class HygienePage(Page):
         self.ui.ButtonPAG.clicked.connect(self.afficher_PAG)
         self.ui.ButtonRestriction.clicked.connect(self.logout)
 
+    def populate_table(self):
+
+        connection = self.Import_BDD.Connection_BDD()
+        cursor = connection.cursor()
+        cursor.execute("SELECT * FROM visiteurs")
+        data = cursor.fetchall()
+
+        # Définir le nombre de lignes et de colonnes du tableau
+        self.table_widget.setRowCount(len(data))
+        self.table_widget.setColumnCount(len(data[0]))
+
+         # Remplir le tableau avec les données
+        for row_idx, row_data in enumerate(data):
+            for col_idx, cell_data in enumerate(row_data):
+                item = QTableWidgetItem(str(cell_data))
+                self.table_widget.setItem(row_idx, col_idx, item)
+
     def afficher_Risque(self):
 
         self.RDR.Affichage()
@@ -45,9 +71,6 @@ class HygienePage(Page):
 
         self.PAG.Affichage()
         self.PAG.Implementation_ComboBox()
-
-
-
 
     def hygiene_vers_accueil(self):
 

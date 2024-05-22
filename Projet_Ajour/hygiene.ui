@@ -156,23 +156,15 @@
    <widget class="QWidget" name="page"/>
    <widget class="QWidget" name="page_2"/>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
      <x>960</x>
      <y>90</y>
-     <width>258</width>
-     <height>651</height>
+     <width>411</width>
+     <height>221</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QTableWidget" name="tableWidget"/>
-    </item>
-    <item row="1" column="0">
-     <widget class="QTableView" name="tableView"/>
-    </item>
-   </layout>
   </widget>
  </widget>
  <resources/>

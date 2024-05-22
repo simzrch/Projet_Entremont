@@ -25,11 +25,11 @@ class Import_Base():
         return connection
         
 
-    def fetch_data_from_mysql2(self, i):
+    def fetch_data_from_mysql2(self):
         
-        cursor = self.conn.cursor()
-        cursor.execute("SELECT * FROM visiteurs")
-        rows = cursor.fetchall()
+        #cursor = self.conn.cursor()
+        self.cursor.execute("SELECT * FROM visiteurs")
+        rows = self.cursor.fetchall()
         # if i == 0 :
         # # Execute SQL query
         #     cursor.execute("SELECT * FROM Feuil1")

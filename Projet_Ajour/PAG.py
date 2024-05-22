@@ -50,19 +50,26 @@ class PAG(Page):
 
     def Implementation_ComboBox(self):
 
-        connection = self.Import_Base.Connection_BDD()
+        self.clear_all_comboboxes()
+        self.populate_combobox("Origine", "Feuil1", self.ui.comboBox)
+        self.populate_combobox("Origine2", "Feuil1", self.ui.comboBox_2)
+        self.populate_combobox("Poste", "Information", self.ui.comboBox_3)
+        self.populate_combobox("Secteur", "Feuil1", self.ui.comboBox_4)
+        self.populate_combobox("Datedebut", "Feuil1", self.ui.comboBox_6)
 
+    def populate_combobox(self, column_name, table_name, combo_box):
+
+        connection = self.Import_Base.Connection_BDD()
         self.conn = connection
         cursor = self.conn.cursor()
 
-        cursor.execute("SELECT Origine FROM Information")
+        query = f"SELECT DISTINCT {column_name} FROM {table_name} WHERE {column_name} != ''"
+        cursor.execute(query)
         rows = cursor.fetchall()
-        #self.ui.comboBox.clear()
-        self.clear_all_comboboxes()
-        self.ui.comboBox.addItems([row[0] for row in rows])
-        
+        for row in rows:
+            if row[0]:
+                combo_box.addItem(row[0])
         cursor.close()
-        self.conn.close()
 
     def clear_all_comboboxes(self):
         for widget in self.ui.findChildren(QtWidgets.QComboBox):
