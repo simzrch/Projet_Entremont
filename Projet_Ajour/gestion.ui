@@ -412,7 +412,7 @@
   <widget class="QPushButton" name="ButtonEntrer">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>150</x>
      <y>740</y>
      <width>121</width>
      <height>31</height>
@@ -453,6 +453,24 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QPushButton" name="ButtonSupprimer">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>740</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Supprimer</string>
+   </property>
+  </widget>
   <zorder>ButtonAccueil</zorder>
   <zorder>ButtonGestion</zorder>
   <zorder>ButtonPerimetres</zorder>
@@ -473,6 +491,7 @@
   <zorder>label_2</zorder>
   <zorder>lineEditBatiment</zorder>
   <zorder>label_7</zorder>
+  <zorder>ButtonSupprimer</zorder>
  </widget>
  <resources/>
  <connections/>

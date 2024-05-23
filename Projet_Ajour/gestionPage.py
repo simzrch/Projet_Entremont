@@ -20,6 +20,7 @@ class GestionPage(Page):
         self.table_widget = self.ui.tableWidgetAcces
         self.populate_table()
         self.setup_ui_connections()
+    #    self.vider_les_LineEdit()
     #    self.perimetres_page = PerimetresPage(self)
         
 
@@ -30,6 +31,8 @@ class GestionPage(Page):
         self.ui.ButtonPerimetres.clicked.connect(self.gestion_vers_perimetres)
         self.ui.ButtonZones.clicked.connect(self.gestion_vers_zones)
         self.ui.ButtonEntrer.clicked.connect(self.Envoie_Donne)
+    #    self.ui.ButtonSupprimer.clicked.connect(self.Suppression_Donne)
+
 
     def Envoie_Donne(self):
 
@@ -59,9 +62,13 @@ class GestionPage(Page):
         # Fermer la connexion
         cursor.close()
         self.conn.close()
-        print("Aurevoir")
 
         self.populate_table()
+
+    #    def vider_les_LineEdit(self):
+        for widget in self.ui.findChildren(QLineEdit):
+            widget.clear()
+        print("Aurevoir")
         
     def populate_table(self):
 
@@ -80,6 +87,10 @@ class GestionPage(Page):
                 item = QTableWidgetItem(str(cell_data))
                 self.table_widget.setItem(row_idx, col_idx, item)
 
+    def Suppression_Donne(self):
+
+        self.
+
     def gestion_vers_accueil(self):
 
         self.accueilOrigine.show()
@@ -94,3 +105,4 @@ class GestionPage(Page):
 
         self.perimetre.zones_page.show()
         self.hide()
+
