@@ -31,7 +31,7 @@ class GestionPage(Page):
         self.ui.ButtonPerimetres.clicked.connect(self.gestion_vers_perimetres)
         self.ui.ButtonZones.clicked.connect(self.gestion_vers_zones)
         self.ui.ButtonEntrer.clicked.connect(self.Envoie_Donne)
-    #    self.ui.ButtonSupprimer.clicked.connect(self.Suppression_Donne)
+        self.ui.ButtonSupprimer.clicked.connect(self.Suppression_Donne)
 
 
     def Envoie_Donne(self):
@@ -87,9 +87,13 @@ class GestionPage(Page):
                 item = QTableWidgetItem(str(cell_data))
                 self.table_widget.setItem(row_idx, col_idx, item)
 
-#    def Suppression_Donne(self):
+    def Suppression_Donne(self):
 
-#        self.
+        id_value = self.ui.ID.text()
+        connection = self.Import_BDD.Connection_BDD()
+        cursor = connection.cursor()
+        cursor.execute("SELECT * FROM Liste_acces")
+        result = cursor.fetchone()
 
     def gestion_vers_accueil(self):
 
@@ -105,4 +109,3 @@ class GestionPage(Page):
 
         self.perimetre.zones_page.show()
         self.hide()
-
