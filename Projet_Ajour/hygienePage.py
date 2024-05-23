@@ -18,20 +18,23 @@ class HygienePage(Page):
         self.table_widget = self.ui.tableWidget
         self.auth_system = accueil_origine.auth_system
         self.accueilOrigine = accueil_origine
+        self.Import_BDD = Import_Base()
+
+        self.PAG = PAG(self)
+        self.RDR = RDR(self)
 
         #-----------
-        self.Import_BDD = Import_Base()
         self.populate_table()
         #----------
 
         self.setup_ui_connections()
 
-        self.PAG = PAG(self)
-        self.RDR = RDR(self)
+        
 
 
     def setup_ui_connections(self):
 
+        self.ui.tableWidget.cellClicked.connect(self.Recuperation_donne)
         self.ui.ButtonAccueil.clicked.connect(self.hygiene_vers_accueil)
         self.ui.ButtonQualiter.clicked.connect(self.hygiene_vers_qualiter)
         self.ui.ButtonRisques.clicked.connect(self.afficher_Risque)
@@ -44,7 +47,7 @@ class HygienePage(Page):
 
         connection = self.Import_BDD.Connection_BDD()
         cursor = connection.cursor()
-        cursor.execute("SELECT * FROM visiteurs")
+        cursor.execute("SELECT * FROM `Feuil1` WHERE 1")
         data = cursor.fetchall()
 
         # Définir le nombre de lignes et de colonnes du tableau
@@ -56,6 +59,29 @@ class HygienePage(Page):
             for col_idx, cell_data in enumerate(row_data):
                 item = QTableWidgetItem(str(cell_data))
                 self.table_widget.setItem(row_idx, col_idx, item)
+
+    def Recuperation_donne(self, row):
+
+
+         ID = self.table_widget.item(row, 0)
+         Datedebut = self.table_widget.item(row, 6)
+         Fonction = self.table_widget.item(row, 10)
+         Origine = self.table_widget.item(row, 4)
+         Redacteur = self.table_widget.item(row, 12)
+         Secteur = self.table_widget.item(row, 15)
+         LignePoste = self.table_widget.item(row, 16)
+         Fonction2 = self.table_widget.item(row, 13)
+         Constat = self.table_widget.item(row, 25)
+         Tâche = self.table_widget.item(row, 20)
+         Commentaire = self.table_widget.item(row, 55)
+         Responsablesecteur = self.table_widget.item(row, 17)
+         Heure = self.table_widget.item(row, 7)
+         Datefin = self.table_widget.item(row, 8)
+         Groupe = self.table_widget.item(row, 1)
+    
+         
+         self.PAG.Implemente_info(ID, Datedebut, Fonction, Origine, Redacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin, Groupe)
+                
 
     def afficher_Risque(self):
 

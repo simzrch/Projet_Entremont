@@ -58,7 +58,7 @@ class MainWindow(Page):
 
     def update_line_edit(self, row):
         # Récupérer la valeur de la cellule sélectionnée et l'afficher dans le QLineEdit
-
+        
         item_2 = self.table_widget.item(row, 1)
         self.line_edit2.setText(item_2.text())
         if item_2 is not None:
