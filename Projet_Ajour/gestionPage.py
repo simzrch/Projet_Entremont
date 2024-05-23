@@ -87,9 +87,9 @@ class GestionPage(Page):
                 item = QTableWidgetItem(str(cell_data))
                 self.table_widget.setItem(row_idx, col_idx, item)
 
-    def Suppression_Donne(self):
+#    def Suppression_Donne(self):
 
-        self.
+#        self.
 
     def gestion_vers_accueil(self):
 
