@@ -12,8 +12,8 @@
   </property>
   <property name="sizePolicy">
    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-    <horstretch>0</horstretch>
-    <verstretch>0</verstretch>
+    <horstretch>8</horstretch>
+    <verstretch>8</verstretch>
    </sizepolicy>
   </property>
   <property name="windowTitle">
@@ -141,7 +141,7 @@
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QTableWidget" name="tableWidget">
+  <widget class="QTableWidget" name="tableWidgetAcces">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -204,9 +204,9 @@
   <widget class="QLineEdit" name="lineEditNom">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>10</x>
      <y>710</y>
-     <width>113</width>
+     <width>101</width>
      <height>22</height>
     </rect>
    </property>
@@ -217,9 +217,9 @@
   <widget class="QLineEdit" name="lineEditPrenom">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>120</x>
      <y>710</y>
-     <width>113</width>
+     <width>101</width>
      <height>22</height>
     </rect>
    </property>
@@ -230,9 +230,9 @@
   <widget class="QLineEdit" name="lineEditMail">
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>230</x>
      <y>710</y>
-     <width>113</width>
+     <width>101</width>
      <height>22</height>
     </rect>
    </property>
@@ -240,9 +240,9 @@
   <widget class="QLineEdit" name="lineEditAcces">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>340</x>
      <y>710</y>
-     <width>113</width>
+     <width>101</width>
      <height>22</height>
     </rect>
    </property>
@@ -250,9 +250,9 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>689</y>
-     <width>111</width>
+     <x>10</x>
+     <y>690</y>
+     <width>101</width>
      <height>21</height>
     </rect>
    </property>
@@ -266,9 +266,9 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>120</x>
      <y>690</y>
-     <width>111</width>
+     <width>101</width>
      <height>21</height>
     </rect>
    </property>
@@ -282,9 +282,9 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>230</x>
      <y>690</y>
-     <width>111</width>
+     <width>101</width>
      <height>21</height>
     </rect>
    </property>
@@ -298,9 +298,9 @@
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>340</x>
      <y>690</y>
-     <width>111</width>
+     <width>101</width>
      <height>21</height>
     </rect>
    </property>
@@ -311,7 +311,7 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QTableWidget" name="tableWidget_2">
+  <widget class="QTableWidget" name="tableWidgetNouv">
    <property name="geometry">
     <rect>
      <x>650</x>
@@ -354,7 +354,7 @@
     </property>
    </column>
   </widget>
-  <widget class="QTableWidget" name="tableWidget_3">
+  <widget class="QTableWidget" name="tableWidgetModule">
    <property name="geometry">
     <rect>
      <x>650</x>
@@ -414,7 +414,7 @@
     <rect>
      <x>220</x>
      <y>740</y>
-     <width>111</width>
+     <width>121</width>
      <height>31</height>
     </rect>
    </property>
@@ -427,12 +427,38 @@
     <string>Entrer</string>
    </property>
   </widget>
+  <widget class="QLineEdit" name="lineEditBatiment">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>710</y>
+     <width>101</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>690</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Bâtiment</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
   <zorder>ButtonAccueil</zorder>
   <zorder>ButtonGestion</zorder>
   <zorder>ButtonPerimetres</zorder>
   <zorder>ButtonZones</zorder>
   <zorder>label</zorder>
-  <zorder>tableWidget</zorder>
+  <zorder>tableWidgetAcces</zorder>
   <zorder>lineEditNom</zorder>
   <zorder>lineEditPrenom</zorder>
   <zorder>lineEditMail</zorder>
@@ -441,10 +467,12 @@
   <zorder>label_4</zorder>
   <zorder>label_5</zorder>
   <zorder>label_6</zorder>
-  <zorder>tableWidget_2</zorder>
-  <zorder>tableWidget_3</zorder>
+  <zorder>tableWidgetNouv</zorder>
+  <zorder>tableWidgetModule</zorder>
   <zorder>ButtonEntrer</zorder>
   <zorder>label_2</zorder>
+  <zorder>lineEditBatiment</zorder>
+  <zorder>label_7</zorder>
  </widget>
  <resources/>
  <connections/>

@@ -1,6 +1,8 @@
 from Page import Page
 from Import_Base import Import_Base
+from PySide6.QtWidgets import QLineEdit, QPushButton, QTableWidget, QTableWidgetItem
 from PySide6.QtUiTools import QUiLoader
+import mysql.connector
 
 
 class GestionPage(Page):
@@ -14,9 +16,13 @@ class GestionPage(Page):
         self.ui.setWindowTitle("Gestion des acces")
         self.accueilOrigine = accueil_origine
         self.perimetre = perimetre
+        self.Import_BDD = Import_Base()
+        self.table_widget = self.ui.tableWidgetAcces
+        self.populate_table()
         self.setup_ui_connections()
     #    self.perimetres_page = PerimetresPage(self)
-        self.Import_BDD = Import_Base()
+        
+
 
     def setup_ui_connections(self):
 
@@ -27,15 +33,52 @@ class GestionPage(Page):
 
     def Envoie_Donne(self):
 
-        Nom = self.ui.lineEditNom.text()
+        print("Bonjour")
+        connection = mysql.connector.connect(
+        host="192.168.1.213",
+        user="root",
+        password="root",
+        database="test_proje_entremont"
+    )
+        self.conn = connection
+        cursor = self.conn.cursor()
+        valeur_colonne1 = self.ui.lineEditNom.text()
+        valeur_colonne2 = self.ui.lineEditPrenom.text()
+        valeur_colonne3 = self.ui.lineEditMail.text()
+        valeur_colonne4 = self.ui.lineEditAcces.text()
+        valeur_colonne5 = self.ui.lineEditBatiment.text()
+
+        # Requête d'insertion avec spécification des colonnes
+        sql = "INSERT INTO Liste_acces (Nom, Prénom, Mail, Accès, Bâtiment) VALUES (%s, %s, %s, %s, %s)"
+        values = (valeur_colonne1, valeur_colonne2, valeur_colonne3, valeur_colonne4, valeur_colonne5)
+        cursor.execute(sql, values)
+
+        # Valider la transaction
+        self.conn.commit()
+
+        # Fermer la connexion
+        cursor.close()
+        self.conn.close()
+        print("Aurevoir")
+
+        self.populate_table()
+        
+    def populate_table(self):
+
         connection = self.Import_BDD.Connection_BDD()
         cursor = connection.cursor()
-            
-        sql = "INSERT INTO Liste_acces (Nom) VALUES (%s)"
-        user = (Nom) #Contien les valeurs a rentré
-        cursor.execute(sql, user) #Execute les 2 fonctions 
-        connection.commit() #Active la commande d'envoie
-        
+        cursor.execute("SELECT * FROM Liste_acces")
+        data = cursor.fetchall()
+
+        # Définir le nombre de lignes et de colonnes du tableau
+        self.table_widget.setRowCount(len(data))
+        self.table_widget.setColumnCount(len(data[0]))
+
+        # Remplir le tableau avec les données
+        for row_idx, row_data in enumerate(data):
+            for col_idx, cell_data in enumerate(row_data):
+                item = QTableWidgetItem(str(cell_data))
+                self.table_widget.setItem(row_idx, col_idx, item)
 
     def gestion_vers_accueil(self):
 

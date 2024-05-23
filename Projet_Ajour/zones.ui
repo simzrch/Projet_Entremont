@@ -337,9 +337,9 @@
    <property name="geometry">
     <rect>
      <x>800</x>
-     <y>460</y>
-     <width>101</width>
-     <height>61</height>
+     <y>470</y>
+     <width>91</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -356,7 +356,7 @@
 </string>
    </property>
    <property name="text">
-    <string>Batiment</string>
+    <string>Batiment B</string>
    </property>
   </widget>
   <widget class="QTableWidget" name="tableWidget">
@@ -451,6 +451,32 @@
     <bool>false</bool>
    </property>
   </widget>
+  <widget class="QPushButton" name="ButtonBatC">
+   <property name="geometry">
+    <rect>
+     <x>920</x>
+     <y>430</y>
+     <width>141</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: transparent;
+	color: #ffffff; /* Couleur du texte (blanc dans cet exemple) */
+    border: none;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Batiment C</string>
+   </property>
+  </widget>
   <zorder>labelPlan</zorder>
   <zorder>ButtonBatA</zorder>
   <zorder>ButtonAccueil</zorder>
@@ -461,6 +487,7 @@
   <zorder>ButtonBatB</zorder>
   <zorder>tableWidget</zorder>
   <zorder>label_2</zorder>
+  <zorder>ButtonBatC</zorder>
  </widget>
  <resources/>
  <connections/>

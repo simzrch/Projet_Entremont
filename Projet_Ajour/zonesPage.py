@@ -23,6 +23,7 @@ class ZonesPage(Page):
         self.ui.ButtonGestion.clicked.connect(self.zones_vers_gestion)
         self.ui.ButtonBatA.clicked.connect(self.plan_vers_batimentA)
         self.ui.ButtonBatB.clicked.connect(self.plan_vers_batimentB)
+        self.ui.ButtonBatC.clicked.connect(self.plan_vers_batimentC)
 
     def zones_vers_accueil(self):
 
@@ -46,3 +47,7 @@ class ZonesPage(Page):
     def plan_vers_batimentB(self):
 
         print("Bâtiment B")
+
+    def plan_vers_batimentC(self):
+
+        print("Bâtiment C")
