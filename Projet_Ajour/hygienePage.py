@@ -30,8 +30,6 @@ class HygienePage(Page):
         self.setup_ui_connections()
 
         
-
-
     def setup_ui_connections(self):
 
         self.ui.tableWidget.cellClicked.connect(self.Recuperation_donne)
@@ -96,6 +94,7 @@ class HygienePage(Page):
     def afficher_PAG(self):
 
         self.PAG.Affichage()
+        self.PAG.ui.BouttonModifier.hide()
         self.PAG.Implementation_ComboBox()
 
     def hygiene_vers_accueil(self):

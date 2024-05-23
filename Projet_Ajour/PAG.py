@@ -46,8 +46,6 @@ class PAG(Page):
         self.ui.BouttonModifier.show()
         self.ui.BouttonModifier.setStyleSheet("background-color: red; color: white; border: 2px solid black;")
 
-        self.ID = ID
-
     def Envoie_Données(self):
           
             self.conn = self.Import_Base.Connection_BDD()
@@ -87,20 +85,20 @@ class PAG(Page):
     def Envoie_Données2(self):
           
         
-            Datedebut = '2024-01-01'
-            Fonction = 'Engineer'
-            Origine = 'Internal'
-            Redacteur = 'John Doe'
-            Secteur = 'IT'
-            LignePoste = 'Developer'
-            Fonction2 = 'Lead'
-            Constat = 'All good'
-            Tâche = 'Coding'
-            Commentaire = 'No comments'
-            Responsablesecteur = 'Jane Smith'
-            Heure = '12:00'
-            Datefin = '2024-01-02'
-            Groupe = 'Group A'
+            Datedebut = self.ui.Date.text()
+            Fonction = self.ui.TypeAudit.currentText()
+            Origine = self.ui.OrigineAction.currentText()
+            Redacteur = self.ui.Redacteur.currentText()
+            Secteur = self.ui.Secteur.currentText()
+            LignePoste = self.ui.LignePoste.toPlainText()
+            Fonction2 = self.ui.Type.currentText()
+            Constat = self.ui.Constat.toPlainText()
+            Tâche = self.ui.Mesure.toPlainText()
+            Commentaire = self.ui.Commentaire.toPlainText()
+            Responsablesecteur = self.ui.ResponsableAction.currentText()
+            Heure = self.ui.DelaieRealisation.text()
+            Datefin = self.ui.DateRealisation.text()
+            Groupe = self.ui.EvaluationEfficacite.text()
 
             # Convert QTableWidgetItem to string (or int if applicable)
             id_value = self.ui.ID.text()
@@ -113,21 +111,13 @@ class PAG(Page):
             cursor.execute("SELECT COUNT(*) FROM Feuil1 WHERE ID = %s", (id_value,))
             result = cursor.fetchone()
 
-            if result[0] > 0:
                 # ID exists, update the data
-                sql = """
+            sql = """
                 UPDATE Feuil1
                 SET Datedebut = %s, Fonction = %s, Origine = %s, Rédacteur_Rédactrice = %s, Secteur = %s, Ligne_Poste = %s, Fonction2 = %s, Constat = %s, Tâche = %s, Commentaires = %s, Responsablesecteur = %s, Heure = %s, Datefin = %s, Groupe = %s
                 WHERE ID = %s
                 """
-                values = (Datedebut, Fonction, Origine, Redacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin, Groupe, id_value)
-            else:
-                # ID does not exist, insert the data
-                sql = """
-                INSERT INTO Feuil1 (Datedebut, Fonction, Origine, Rédacteur_Rédactrice, Secteur, Ligne_Poste, Fonction2, Constat, Tâche, Commentaires, Responsablesecteur, Heure, Datefin, Groupe)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                """
-                values = (Datedebut, Fonction, Origine, Redacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin, Groupe)
+            values = (Datedebut, Fonction, Origine, Redacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin, Groupe, id_value)
 
             cursor.execute(sql, values)
             self.conn.commit()
@@ -135,6 +125,8 @@ class PAG(Page):
             cursor.close()
             self.conn.close()
 
+            self.ui.BouttonModifier.hide()
+            
             self.clear_all(1)
 
             self.hygiene.populate_table()
