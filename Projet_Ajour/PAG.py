@@ -13,8 +13,40 @@ class PAG(Page):
         self.ui = loader.load("PAG.ui")
         self.hygiene = hygiene
         self.ui.ButtonValide.clicked.connect(self.Envoie_Données)
+        self.ui.BouttonModifier.clicked.connect(self.Envoie_Données2)
+        self.ui.BouttonModifier.hide()
         self.Import_Base = Import_Base()
+
+    def Affichage(self):
         
+        self.hygiene.stackedWidget.addWidget(self.ui)
+        self.hygiene.stackedWidget.setCurrentWidget(self.ui)   
+
+    def Implemente_info(self, ID, Datedebut, Fonction, Origine, Redacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin, Groupe):
+
+        # self.ui.Date.setText(item_2.text())
+        # self.ui.DelaieRealisation.setText(item.text())
+
+        self.ui.ID.setText(ID.text())
+        self.ui.Date.setText(Datedebut.text())
+        self.ui.TypeAudit.setCurrentText(Fonction.text())
+        self.ui.OrigineAction.setCurrentText(Origine.text())
+        self.ui.Redacteur.setCurrentText(Redacteur.text())
+        self.ui.Secteur.setCurrentText(Secteur.text())
+        self.ui.LignePoste.setPlainText(LignePoste.text())
+        self.ui.Type.setCurrentText(Fonction2.text())
+        self.ui.Constat.setPlainText(Constat.text())
+        self.ui.Mesure.setPlainText(Tâche.text())
+        self.ui.Commentaire.setPlainText(Commentaire.text())
+        self.ui.ResponsableAction.setCurrentText(Responsablesecteur.text())
+        self.ui.DelaieRealisation.setText(Heure.text())
+        self.ui.DateRealisation.setText(Datefin.text())
+        self.ui.EvaluationEfficacite.setText(Groupe.text())
+
+        self.ui.BouttonModifier.show()
+        self.ui.BouttonModifier.setStyleSheet("background-color: red; color: white; border: 2px solid black;")
+
+        self.ID = ID
 
     def Envoie_Données(self):
           
@@ -24,7 +56,7 @@ class PAG(Page):
             Datedebut = self.ui.Date.text()
             Fonction = self.ui.TypeAudit.currentText()
             Origine = self.ui.OrigineAction.currentText()
-            Rédacteur = self.ui.Redacteur.currentText()
+            Redacteur = self.ui.Redacteur.currentText()
             Secteur = self.ui.Secteur.currentText()
             LignePoste = self.ui.LignePoste.toPlainText()
             Fonction2 = self.ui.Type.currentText()
@@ -39,7 +71,7 @@ class PAG(Page):
 
             # Requête d'insertion avec spécification des colonnes
             sql = "INSERT INTO Feuil1 (Datedebut, Fonction, Origine, Rédacteur_Rédactrice, Secteur, Ligne_Poste, Fonction2, Constat, Tâche, Commentaires, Responsablesecteur, Heure, Datefin, Groupe) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-            values = (Datedebut, Fonction, Origine, Rédacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin, Groupe)
+            values = (Datedebut, Fonction, Origine, Redacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin, Groupe)
             cursor.execute(sql, values)
 
             # Valider la transaction
@@ -51,10 +83,61 @@ class PAG(Page):
 
             self.clear_all(1)
 
-    def Affichage(self):
+    
+    def Envoie_Données2(self):
+          
         
-        self.hygiene.stackedWidget.addWidget(self.ui)
-        self.hygiene.stackedWidget.setCurrentWidget(self.ui)
+            Datedebut = '2024-01-01'
+            Fonction = 'Engineer'
+            Origine = 'Internal'
+            Redacteur = 'John Doe'
+            Secteur = 'IT'
+            LignePoste = 'Developer'
+            Fonction2 = 'Lead'
+            Constat = 'All good'
+            Tâche = 'Coding'
+            Commentaire = 'No comments'
+            Responsablesecteur = 'Jane Smith'
+            Heure = '12:00'
+            Datefin = '2024-01-02'
+            Groupe = 'Group A'
+
+            # Convert QTableWidgetItem to string (or int if applicable)
+            id_value = self.ui.ID.text()
+
+            # Connect to the database
+            self.conn = self.Import_Base.Connection_BDD()
+            cursor = self.conn.cursor()
+
+            # Check if the ID exists
+            cursor.execute("SELECT COUNT(*) FROM Feuil1 WHERE ID = %s", (id_value,))
+            result = cursor.fetchone()
+
+            if result[0] > 0:
+                # ID exists, update the data
+                sql = """
+                UPDATE Feuil1
+                SET Datedebut = %s, Fonction = %s, Origine = %s, Rédacteur_Rédactrice = %s, Secteur = %s, Ligne_Poste = %s, Fonction2 = %s, Constat = %s, Tâche = %s, Commentaires = %s, Responsablesecteur = %s, Heure = %s, Datefin = %s, Groupe = %s
+                WHERE ID = %s
+                """
+                values = (Datedebut, Fonction, Origine, Redacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin, Groupe, id_value)
+            else:
+                # ID does not exist, insert the data
+                sql = """
+                INSERT INTO Feuil1 (Datedebut, Fonction, Origine, Rédacteur_Rédactrice, Secteur, Ligne_Poste, Fonction2, Constat, Tâche, Commentaires, Responsablesecteur, Heure, Datefin, Groupe)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                """
+                values = (Datedebut, Fonction, Origine, Redacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin, Groupe)
+
+            cursor.execute(sql, values)
+            self.conn.commit()
+
+            cursor.close()
+            self.conn.close()
+
+            self.clear_all(1)
+
+            self.hygiene.populate_table()
 
     def Implementation_ComboBox(self):
 
@@ -65,6 +148,7 @@ class PAG(Page):
         self.populate_combobox("Poste", "Information", self.ui.Redacteur)
         self.populate_combobox("Secteur", "Feuil1", self.ui.Secteur)
         self.populate_combobox("Datedebut", "Feuil1", self.ui.Type)
+
 
     def populate_combobox(self, column_name, table_name, combo_box):
 
@@ -79,6 +163,8 @@ class PAG(Page):
                 combo_box.addItem(row[0])
         cursor.close()
         self.conn.close()
+
+
 
     def clear_all(self, i):
 
