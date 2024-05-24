@@ -29,7 +29,7 @@ class GestionPage(Page):
         self.ui.ButtonPerimetres.clicked.connect(self.gestion_vers_perimetres)
         self.ui.ButtonZones.clicked.connect(self.gestion_vers_zones)
         self.ui.ButtonEntrer.clicked.connect(self.Envoie_Donne)
-        self.ui.ButtonSupprimer.clicked.connect(self.Recuperation_donne)
+        self.ui.ButtonSupprimer.clicked.connect(self.ligne_selectionnee)
 
 
     def Envoie_Donne(self):
@@ -97,6 +97,8 @@ class GestionPage(Page):
                 self.table_widget.setItem(row_idx, col_idx, item)
 
 #==============================================================================================================
+#Suppression
+#============
 
     def ligne_selectionnee(self):
         selected_items = self.table_widget.selectedItems()
@@ -110,8 +112,10 @@ class GestionPage(Page):
         Mail = self.table_widget.item(row, 2).text() if self.table_widget.item(row, 2) else ""
         Acces = self.table_widget.item(row, 3).text() if self.table_widget.item(row, 3) else ""
         Batiment = self.table_widget.item(row, 4).text() if self.table_widget.item(row, 4) else ""
+        print(Nom, Prenom, Mail, Acces, Batiment)
 
         self.Suppression_Donne(Nom, Prenom, Mail, Acces, Batiment)
+         
 
     def Suppression_Donne(self, Nom, Prenom, Mail, Acces, Batiment):
         # Connect to the database
