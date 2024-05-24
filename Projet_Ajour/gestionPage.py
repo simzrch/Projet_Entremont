@@ -20,10 +20,8 @@ class GestionPage(Page):
         self.table_widget = self.ui.tableWidgetAcces
         self.populate_table()
         self.setup_ui_connections()
-    #    self.vider_les_LineEdit()
     #    self.perimetres_page = PerimetresPage(self)
         
-
 
     def setup_ui_connections(self):
 
@@ -31,7 +29,7 @@ class GestionPage(Page):
         self.ui.ButtonPerimetres.clicked.connect(self.gestion_vers_perimetres)
         self.ui.ButtonZones.clicked.connect(self.gestion_vers_zones)
         self.ui.ButtonEntrer.clicked.connect(self.Envoie_Donne)
-        self.ui.ButtonSupprimer.clicked.connect(self.Suppression_Donne)
+        self.ui.ButtonSupprimer.clicked.connect(self.Recuperation_donne)
 
 
     def Envoie_Donne(self):
@@ -48,11 +46,13 @@ class GestionPage(Page):
         valeur_colonne1 = self.ui.lineEditNom.text()
         valeur_colonne2 = self.ui.lineEditPrenom.text()
         valeur_colonne3 = self.ui.lineEditMail.text()
-        valeur_colonne4 = self.ui.lineEditAcces.text()
-        valeur_colonne5 = self.ui.lineEditBatiment.text()
+    #    valeur_colonne4 = self.ui.lineEditAcces.text()
+    #    valeur_colonne5 = self.ui.lineEditBatiment.text()
+        valeur_colonne4 = self.ui.comboBoxAcces.currentText()
+        valeur_colonne5 = self.ui.comboBoxBatiment.currentText()
 
         # Requête d'insertion avec spécification des colonnes
-        sql = "INSERT INTO Liste_acces (Nom, Prénom, Mail, Accès, Bâtiment) VALUES (%s, %s, %s, %s, %s)"
+        sql = "INSERT INTO Liste_acces (Nom, Prenom, Mail, Acces, Batiment) VALUES (%s, %s, %s, %s, %s)"
         values = (valeur_colonne1, valeur_colonne2, valeur_colonne3, valeur_colonne4, valeur_colonne5)
         cursor.execute(sql, values)
 
@@ -65,11 +65,20 @@ class GestionPage(Page):
 
         self.populate_table()
 
-    #    def vider_les_LineEdit(self):
+        # vider_les_LineEdit(self):
         for widget in self.ui.findChildren(QLineEdit):
             widget.clear()
         print("Aurevoir")
         
+
+    def Implementation_ComboBox(self):
+
+        self.clear_all(0)
+
+        self.populate_combobox("Acces", self.ui.comboBoxAcces)
+        self.populate_combobox("Batiment", self.ui.comboBoxBatiment)
+
+
     def populate_table(self):
 
         connection = self.Import_BDD.Connection_BDD()
@@ -87,13 +96,72 @@ class GestionPage(Page):
                 item = QTableWidgetItem(str(cell_data))
                 self.table_widget.setItem(row_idx, col_idx, item)
 
-    def Suppression_Donne(self):
+#==============================================================================================================
 
-        id_value = self.ui.ID.text()
-        connection = self.Import_BDD.Connection_BDD()
-        cursor = connection.cursor()
-        cursor.execute("SELECT * FROM Liste_acces")
+    def ligne_selectionnee(self):
+        selected_items = self.table_widget.selectedItems()
+        if selected_items:
+            row = selected_items[0].row()
+            self.Recuperation_donne(row)
+
+    def Recuperation_donne(self, row):
+        Nom = self.table_widget.item(row, 0).text() if self.table_widget.item(row, 0) else ""
+        Prenom = self.table_widget.item(row, 1).text() if self.table_widget.item(row, 1) else ""
+        Mail = self.table_widget.item(row, 2).text() if self.table_widget.item(row, 2) else ""
+        Acces = self.table_widget.item(row, 3).text() if self.table_widget.item(row, 3) else ""
+        Batiment = self.table_widget.item(row, 4).text() if self.table_widget.item(row, 4) else ""
+
+        self.Suppression_Donne(Nom, Prenom, Mail, Acces, Batiment)
+
+    def Suppression_Donne(self, Nom, Prenom, Mail, Acces, Batiment):
+        # Connect to the database
+        self.conn = self.Import_BDD.Connection_BDD()
+        cursor = self.conn.cursor()
+
+        # Print column names to verify
+        cursor.execute("SHOW COLUMNS FROM Liste_acces")
+        columns = cursor.fetchall()
+        print("Columns in Liste_acces:", [column[0] for column in columns])
+
+        # Check if the entry exists
+        cursor.execute("""
+            SELECT COUNT(*) 
+            FROM Liste_acces 
+            WHERE Nom = %s AND Prenom = %s AND Mail = %s AND Acces = %s AND Batiment = %s
+        """, (Nom, Prenom, Mail, Acces, Batiment))
         result = cursor.fetchone()
+
+        if result[0] > 0:
+            # Entry exists, delete the data
+            sql = """
+            DELETE FROM Liste_acces 
+            WHERE Nom = %s AND Prenom = %s AND Mail = %s AND Acces = %s AND Batiment = %s
+            """
+            cursor.execute(sql, (Nom, Prenom, Mail, Acces, Batiment))
+            self.conn.commit()
+        else:
+            # Entry does not exist, show a message or handle accordingly
+            print("Entry does not exist.")
+
+        cursor.close()
+        self.conn.close()
+
+        # Comment out the clear_all call if it does not exist
+        # self.clear_all(1)
+        self.populate_table()
+
+    def clear_all(self, flag):
+        # Implémente la logique de nettoyage ici
+        # Par exemple, nettoyer certains champs de l'interface utilisateur
+        self.ui.Nom.clear()
+        self.ui.Prenom.clear()
+        self.ui.Mail.clear()
+        self.ui.Acces.clear()
+        self.ui.Batiment.clear()
+        # Ajoute d'autres champs si nécessaire
+        print(f"clear_all called with flag: {flag}")
+
+#=====================================================================================================================
 
     def gestion_vers_accueil(self):
 
