@@ -93,7 +93,7 @@
     <string>Périmètres</string>
    </property>
   </widget>
-  <widget class="QTableWidget" name="tableWidget">
+  <widget class="QTableWidget" name="tableWidgetAcces">
    <property name="geometry">
     <rect>
      <x>20</x>

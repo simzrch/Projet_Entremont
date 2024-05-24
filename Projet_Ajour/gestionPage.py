@@ -46,8 +46,6 @@ class GestionPage(Page):
         valeur_colonne1 = self.ui.lineEditNom.text()
         valeur_colonne2 = self.ui.lineEditPrenom.text()
         valeur_colonne3 = self.ui.lineEditMail.text()
-    #    valeur_colonne4 = self.ui.lineEditAcces.text()
-    #    valeur_colonne5 = self.ui.lineEditBatiment.text()
         valeur_colonne4 = self.ui.comboBoxAcces.currentText()
         valeur_colonne5 = self.ui.comboBoxBatiment.currentText()
 
@@ -69,7 +67,7 @@ class GestionPage(Page):
         for widget in self.ui.findChildren(QLineEdit):
             widget.clear()
         print("Aurevoir")
-        
+
 
     def Implementation_ComboBox(self):
 
