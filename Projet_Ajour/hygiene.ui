@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1400</width>
-    <height>802</height>
+    <width>1423</width>
+    <height>842</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -180,7 +180,7 @@
      <x>231</x>
      <y>91</y>
      <width>731</width>
-     <height>661</height>
+     <height>731</height>
     </rect>
    </property>
    <property name="currentIndex">
@@ -193,7 +193,7 @@
    <property name="geometry">
     <rect>
      <x>960</x>
-     <y>90</y>
+     <y>110</y>
      <width>411</width>
      <height>361</height>
     </rect>
@@ -203,7 +203,7 @@
    <property name="geometry">
     <rect>
      <x>960</x>
-     <y>450</y>
+     <y>470</y>
      <width>411</width>
      <height>351</height>
     </rect>
@@ -212,10 +212,10 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-10</x>
      <y>0</y>
-     <width>1401</width>
-     <height>801</height>
+     <width>1421</width>
+     <height>841</height>
     </rect>
    </property>
    <property name="text">
@@ -223,6 +223,32 @@
    </property>
    <property name="pixmap">
     <pixmap>Image_interface/Capture.PNG</pixmap>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>960</x>
+     <y>90</y>
+     <width>411</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="currentText">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>1290</x>
+     <y>90</y>
+     <width>51</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Filtre</string>
    </property>
   </widget>
   <zorder>label_2</zorder>
@@ -234,6 +260,8 @@
   <zorder>stackedWidget</zorder>
   <zorder>tableWidget</zorder>
   <zorder>tableWidget_2</zorder>
+  <zorder>comboBox</zorder>
+  <zorder>label_3</zorder>
  </widget>
  <resources/>
  <connections/>

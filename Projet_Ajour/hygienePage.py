@@ -23,9 +23,7 @@ class HygienePage(Page):
         self.PAG = PAG(self)
         self.RDR = RDR(self)
 
-        #-----------
         self.populate_table(0)
-        #----------
 
         self.setup_ui_connections()
 
@@ -79,6 +77,8 @@ class HygienePage(Page):
         Groupe = self.table_widget.item(row, 1)
         BU = self.table_widget.item(row, 2)
         Site = self.table_widget.item(row, 3)
+
+
         Datedebut = self.table_widget.item(row, 4)
         Fonction = self.table_widget.item(row, 5)
         Origine = self.table_widget.item(row, 6)
@@ -93,27 +93,10 @@ class HygienePage(Page):
         Heure = self.table_widget.item(row, 15)
         Datefin = self.table_widget.item(row, 16)
 
-        # ID = self.table_widget.item(row, 0)
-        # Datedebut = self.table_widget.item(row, 6)
-        # Fonction = self.table_widget.item(row, 10)
-        # Origine = self.table_widget.item(row, 4)
-        # Redacteur = self.table_widget.item(row, 12)
-        # Secteur = self.table_widget.item(row, 15)
-        # LignePoste = self.table_widget.item(row, 16)
-        # Fonction2 = self.table_widget.item(row, 13)
-        # Constat = self.table_widget.item(row, 25)
-        # Tâche = self.table_widget.item(row, 20)
-        # Commentaire = self.table_widget.item(row, 55)
-        # Responsablesecteur = self.table_widget.item(row, 17)
-        # Heure = self.table_widget.item(row, 7)
-        # Datefin = self.table_widget.item(row, 8)
-        # Groupe = self.table_widget.item(row, 1)
-    
          
         self.PAG.Implemente_info(ID, Groupe, Datedebut, Fonction, Origine, Rédacteur_Rédactrice, Secteur, Ligne_Poste, Fonction2, Constat, Tâche, Commentaires, Responsablesecteur, Heure, Datefin)
-        # self.RDR.Implemente_info()
-    
-        
+        self.RDR.Implemente_info(ID, Groupe, Datedebut, Fonction, Origine, Rédacteur_Rédactrice, Secteur, Ligne_Poste, Fonction2, Constat, Tâche, Commentaires, Responsablesecteur, Heure, Datefin)
+
 
     def afficher_Risque(self):
 

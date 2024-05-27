@@ -2,6 +2,8 @@ from Page import Page
 from Import_Base import Import_Base
 from PySide6.QtUiTools import QUiLoader
 from PySide6 import QtWidgets
+from PySide6 import QtCore, QtWidgets
+
 
 class RDR(Page):
     def __init__(self, hygiene):
@@ -19,118 +21,24 @@ class RDR(Page):
     def Affichage(self):
         
         self.hygiene.stackedWidget.addWidget(self.ui)
-        self.hygiene.stackedWidget.setCurrentWidget(self.ui)
+        self.hygiene.stackedWidget.setCurrentWidget(self.ui)   
 
-    def Implemente_info(self, ID, Datedebut, Fonction, Origine, Redacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin, Groupe):
+    def Implemente_info(self, ID, Groupe, Datedebut, Fonction, Origine, Redacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin):
 
-        # self.ui.Date.setText(item_2.text())
-        # self.ui.DelaieRealisation.setText(item.text())
-
-            self.ui.ID.setText(ID.text())
-            self.ui.Date.setText(Datedebut.text())
-            self.ui.TypeAudit.setCurrentText(Fonction.text())
-            self.ui.OrigineAction.setCurrentText(Origine.text())
-            self.ui.Redacteur.setCurrentText(Redacteur.text())
-            self.ui.Secteur.setCurrentText(Secteur.text())
-            self.ui.LignePoste.setPlainText(LignePoste.text())
-            self.ui.Type.setCurrentText(Fonction2.text())
-            self.ui.Constat.setPlainText(Constat.text())
-            self.ui.Mesure.setPlainText(Tâche.text())
-            self.ui.Commentaire.setPlainText(Commentaire.text())
-            self.ui.ResponsableAction.setCurrentText(Responsablesecteur.text())
-            self.ui.DelaieRealisation.setText(Heure.text())
-            self.ui.DateRealisation.setText(Datefin.text())
-            self.ui.EvaluationEfficacite.setText(Groupe.text())
-
-            self.ui.BouttonModifier.show()
-            self.ui.BouttonModifier.setStyleSheet("background-color: red; color: white; border: 2px solid black;")
+        pass
 
     def Envoie_Données(self):
           
-            self.conn = self.Import_Base.Connection_BDD()
-            cursor = self.conn.cursor()
+        pass
 
-            Datedebut = self.ui.Date.text()
-            Fonction = self.ui.Redacteur.currentText()
-            Origine = self.ui.Secteur.currentText()
-            Redacteur = self.ui.NivPyramide.currentText()
-            #OrigineActionVCSA
-            LignePoste = self.ui.Constat.toPlainText()
-            Constat = self.ui.Action.toPlainText()
+    def get_last_id_from_database(self):
 
-            Fonction2 = self.ui.Type.currentText()
-            Tâche = self.ui.Mesure.toPlainText()
-            Commentaire = self.ui.Commentaire.toPlainText()
-            Responsablesecteur = self.ui.ResponsableAction.currentText()
-            Heure = self.ui.DelaieRealisation.text()
-            Datefin = self.ui.DateRealisation.text()
-            Groupe = self.ui.EvaluationEfficacite.text()
-            
-
-            # Requête d'insertion avec spécification des colonnes
-            sql = "INSERT INTO Feuil1 (Datedebut, Fonction, Origine, Rédacteur_Rédactrice, Secteur, Ligne_Poste, Fonction2, Constat, Tâche, Commentaires, Responsablesecteur, Heure, Datefin, Groupe) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-            values = (Datedebut, Fonction, Origine, Redacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin, Groupe)
-            cursor.execute(sql, values)
-
-            # Valider la transaction
-            self.conn.commit()
-
-            # Fermer la connexion
-            cursor.close()
-            self.conn.close()
-
-            self.clear_all(1)
-
-    
+        pass
+        
     def Envoie_Données2(self):
           
-        
-            Datedebut = self.ui.Date.text()
-            Fonction = self.ui.TypeAudit.currentText()
-            Origine = self.ui.OrigineAction.currentText()
-            Redacteur = self.ui.Redacteur.currentText()
-            Secteur = self.ui.Secteur.currentText()
-            LignePoste = self.ui.LignePoste.toPlainText()
-            Fonction2 = self.ui.Type.currentText()
-            Constat = self.ui.Constat.toPlainText()
-            Tâche = self.ui.Mesure.toPlainText()
-            Commentaire = self.ui.Commentaire.toPlainText()
-            Responsablesecteur = self.ui.ResponsableAction.currentText()
-            Heure = self.ui.DelaieRealisation.text()
-            Datefin = self.ui.DateRealisation.text()
-            Groupe = self.ui.EvaluationEfficacite.text()
-
-            # Convert QTableWidgetItem to string (or int if applicable)
-            id_value = self.ui.ID.text()
-
-            # Connect to the database
-            self.conn = self.Import_Base.Connection_BDD()
-            cursor = self.conn.cursor()
-
-            # Check if the ID exists
-            cursor.execute("SELECT COUNT(*) FROM Feuil1 WHERE ID = %s", (id_value,))
-            result = cursor.fetchone()
-
-                # ID exists, update the data
-            sql = """
-                UPDATE Feuil1
-                SET Datedebut = %s, Fonction = %s, Origine = %s, Rédacteur_Rédactrice = %s, Secteur = %s, Ligne_Poste = %s, Fonction2 = %s, Constat = %s, Tâche = %s, Commentaires = %s, Responsablesecteur = %s, Heure = %s, Datefin = %s, Groupe = %s
-                WHERE ID = %s
-                """
-            values = (Datedebut, Fonction, Origine, Redacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin, Groupe, id_value)
-
-            cursor.execute(sql, values)
-            self.conn.commit()
-
-            cursor.close()
-            self.conn.close()
-
-            self.ui.BouttonModifier.hide()
-            
-            self.clear_all(1)
-
-            self.hygiene.populate_table()
-
+        pass
+    
     def Implementation_ComboBox(self):
 
         self.clear_all(0)
@@ -140,6 +48,7 @@ class RDR(Page):
         self.populate_combobox("Poste", "Information", self.ui.TypologieRisque)
         self.populate_combobox("Secteur", "Feuil1", self.ui.NivPyramide)
         self.populate_combobox("Datedebut", "Feuil1", self.ui.ResponsableAction)
+        self.populate_combobox("Datedebut", "Feuil1", self.ui.ContributaurAction)
 
 
     def populate_combobox(self, column_name, table_name, combo_box):

@@ -16,6 +16,7 @@ class PAG(Page):
         self.ui.ButtonValide.clicked.connect(self.Envoie_Données)
         self.ui.BouttonModifier.clicked.connect(self.Envoie_Données2)
         self.ui.BouttonModifier.hide()
+        self.ui.ID.hide()
         self.Import_Base = Import_Base()
 
     def Affichage(self):
