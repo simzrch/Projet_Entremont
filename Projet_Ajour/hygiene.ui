@@ -13,6 +13,39 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">
+    QPushButton {
+        background-color: #3498db;
+        color: white;
+        border-radius: 10px;
+        padding: 10px;
+        border: 1px solid #2980b9;
+        font-size: 14px;
+    }
+    QPushButton:hover {
+        background-color: #2980b9;
+    }
+    QPushButton:pressed {
+        background-color: #1e6f93;
+    }
+    QLabel {
+        font-size: 16px;
+        color: #2c3e50;
+    }
+    QTableWidget {
+        background-color: white;
+        border: 1px solid #dcdcdc;
+        gridline-color: #dcdcdc;
+    }
+    QTableWidget QHeaderView::section {
+        background-color: #3498db;
+        color: white;
+        padding: 5px;
+        border: 1px solid #2980b9;
+    }
+   </string>
+  </property>
   <widget class="QPushButton" name="ButtonAccueil">
    <property name="geometry">
     <rect>
@@ -176,6 +209,31 @@
     </rect>
    </property>
   </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1401</width>
+     <height>801</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>Image_interface/Capture.PNG</pixmap>
+   </property>
+  </widget>
+  <zorder>label_2</zorder>
+  <zorder>ButtonAccueil</zorder>
+  <zorder>horizontalLayoutWidget</zorder>
+  <zorder>verticalLayoutWidget</zorder>
+  <zorder>ButtonRestriction</zorder>
+  <zorder>label</zorder>
+  <zorder>stackedWidget</zorder>
+  <zorder>tableWidget</zorder>
+  <zorder>tableWidget_2</zorder>
  </widget>
  <resources/>
  <connections/>
