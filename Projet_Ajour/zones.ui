@@ -92,7 +92,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>570</x>
+     <x>580</x>
      <y>180</y>
      <width>601</width>
      <height>581</height>
@@ -111,10 +111,10 @@
   <widget class="QPushButton" name="ButtonBatA">
    <property name="geometry">
     <rect>
-     <x>820</x>
-     <y>270</y>
-     <width>81</width>
-     <height>61</height>
+     <x>840</x>
+     <y>280</y>
+     <width>71</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="palette">
@@ -336,7 +336,7 @@
   <widget class="QPushButton" name="ButtonBatB">
    <property name="geometry">
     <rect>
-     <x>800</x>
+     <x>810</x>
      <y>470</y>
      <width>91</width>
      <height>41</height>
@@ -362,8 +362,8 @@
   <widget class="QTableWidget" name="tableWidgetAcces">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>231</y>
+     <x>10</x>
+     <y>201</y>
      <width>521</width>
      <height>491</height>
     </rect>
@@ -422,8 +422,8 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>180</y>
+     <x>10</x>
+     <y>150</y>
      <width>521</width>
      <height>51</height>
     </rect>
@@ -454,7 +454,7 @@
   <widget class="QPushButton" name="ButtonBatC">
    <property name="geometry">
     <rect>
-     <x>920</x>
+     <x>930</x>
      <y>430</y>
      <width>141</width>
      <height>161</height>

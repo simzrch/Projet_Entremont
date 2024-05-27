@@ -112,7 +112,7 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>150</y>
      <width>521</width>
      <height>51</height>
@@ -144,37 +144,17 @@
   <widget class="QTableWidget" name="tableWidgetAcces">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>201</y>
      <width>521</width>
      <height>491</height>
     </rect>
    </property>
-   <row>
-    <property name="text">
-     <string/>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>1</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>2</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>3</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>4</string>
-    </property>
-   </row>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
    <column>
     <property name="text">
      <string>Nom</string>
@@ -204,7 +184,7 @@
   <widget class="QLineEdit" name="lineEditNom">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>20</x>
      <y>710</y>
      <width>101</width>
      <height>22</height>
@@ -217,7 +197,7 @@
   <widget class="QLineEdit" name="lineEditPrenom">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>130</x>
      <y>710</y>
      <width>101</width>
      <height>22</height>
@@ -230,7 +210,7 @@
   <widget class="QLineEdit" name="lineEditMail">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>240</x>
      <y>710</y>
      <width>101</width>
      <height>22</height>
@@ -240,7 +220,7 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>20</x>
      <y>690</y>
      <width>101</width>
      <height>21</height>
@@ -256,7 +236,7 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>130</x>
      <y>690</y>
      <width>101</width>
      <height>21</height>
@@ -272,7 +252,7 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>240</x>
      <y>690</y>
      <width>101</width>
      <height>21</height>
@@ -288,7 +268,7 @@
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>350</x>
      <y>690</y>
      <width>101</width>
      <height>21</height>
@@ -304,7 +284,7 @@
   <widget class="QTableWidget" name="tableWidgetNouv">
    <property name="geometry">
     <rect>
-     <x>650</x>
+     <x>600</x>
      <y>200</y>
      <width>421</width>
      <height>131</height>
@@ -347,10 +327,10 @@
   <widget class="QTableWidget" name="tableWidgetModule">
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>380</y>
+     <x>600</x>
+     <y>370</y>
      <width>421</width>
-     <height>351</height>
+     <height>321</height>
     </rect>
    </property>
    <row>
@@ -402,7 +382,7 @@
   <widget class="QPushButton" name="ButtonEntrer">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>160</x>
      <y>740</y>
      <width>121</width>
      <height>31</height>
@@ -420,7 +400,7 @@
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>450</x>
+     <x>460</x>
      <y>690</y>
      <width>101</width>
      <height>21</height>
@@ -436,7 +416,7 @@
   <widget class="QPushButton" name="ButtonSupprimer">
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>310</x>
      <y>740</y>
      <width>121</width>
      <height>31</height>
@@ -454,7 +434,7 @@
   <widget class="QComboBox" name="comboBoxAcces">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>350</x>
      <y>710</y>
      <width>101</width>
      <height>22</height>
@@ -479,7 +459,7 @@
   <widget class="QComboBox" name="comboBoxBatiment">
    <property name="geometry">
     <rect>
-     <x>450</x>
+     <x>460</x>
      <y>710</y>
      <width>101</width>
      <height>22</height>
