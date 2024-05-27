@@ -2,6 +2,7 @@ from Page import Page
 from Import_Base import Import_Base
 from PySide6.QtUiTools import QUiLoader
 from PySide6 import QtWidgets
+from PySide6 import QtCore, QtWidgets
 
 
 class PAG(Page):
@@ -22,7 +23,7 @@ class PAG(Page):
         self.hygiene.stackedWidget.addWidget(self.ui)
         self.hygiene.stackedWidget.setCurrentWidget(self.ui)   
 
-    def Implemente_info(self, ID, Datedebut, Fonction, Origine, Redacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin, Groupe):
+    def Implemente_info(self, ID, Groupe, Datedebut, Fonction, Origine, Redacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin):
 
         # self.ui.Date.setText(item_2.text())
         # self.ui.DelaieRealisation.setText(item.text())
@@ -46,12 +47,23 @@ class PAG(Page):
         self.ui.BouttonModifier.show()
         self.ui.BouttonModifier.setStyleSheet("background-color: red; color: white; border: 2px solid black;")
 
-        self.ID = ID
-
     def Envoie_Données(self):
           
             self.conn = self.Import_Base.Connection_BDD()
             cursor = self.conn.cursor()
+
+            current_year = QtCore.QDate.currentDate().year()
+            last_id = self.get_last_id_from_database()
+        
+            if last_id:
+                last_id_number = int(last_id.split("-")[-1])
+                new_id_number = last_id_number + 1
+                new_id = f"VCS-{current_year}-{new_id_number:05d}"
+            else:
+                new_id = f"VCS-{current_year}-00001"
+        
+            #self.insert_id_into_database(new_id)
+            print("Generated ID:", new_id)
 
             Datedebut = self.ui.Date.text()
             Fonction = self.ui.TypeAudit.currentText()
@@ -68,10 +80,12 @@ class PAG(Page):
             Datefin = self.ui.DateRealisation.text()
             Groupe = self.ui.EvaluationEfficacite.text()
             
-
+            self.conn = self.Import_Base.Connection_BDD()
+            cursor = self.conn.cursor()
             # Requête d'insertion avec spécification des colonnes
-            sql = "INSERT INTO Feuil1 (Datedebut, Fonction, Origine, Rédacteur_Rédactrice, Secteur, Ligne_Poste, Fonction2, Constat, Tâche, Commentaires, Responsablesecteur, Heure, Datefin, Groupe) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-            values = (Datedebut, Fonction, Origine, Redacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin, Groupe)
+
+            sql = "INSERT INTO Feuil1 (`ID`, `Datedebut`, `Groupe`, `Fonction`, `Origine`, `Rédacteur/Rédactrice`, `Secteur`, `Ligne/Poste`, `Fonction2`, `Constat`, `Tâche`, `Commentaire(s)`, `Responsablesecteur`, `Heure`, `Datefin`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+            values = (new_id, Datedebut, Fonction, Origine, Redacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin, Groupe)
             cursor.execute(sql, values)
 
             # Valider la transaction
@@ -83,24 +97,42 @@ class PAG(Page):
 
             self.clear_all(1)
 
-    
+            self.hygiene.populate_table(4)
+
+    def get_last_id_from_database(self):
+        # Connect to your MySQL database
+        self.conn = self.Import_Base.Connection_BDD()
+        cursor = self.conn.cursor()
+        
+        # Execute query to get the last ID
+        cursor.execute("SELECT id FROM Feuil1 ORDER BY id DESC LIMIT 1")
+        result = cursor.fetchone()
+        
+        cursor.close()
+        self.conn.close()
+        
+        if result:
+            return result[0]
+        else:
+            return None
+        
     def Envoie_Données2(self):
           
         
-            Datedebut = '2024-01-01'
-            Fonction = 'Engineer'
-            Origine = 'Internal'
-            Redacteur = 'John Doe'
-            Secteur = 'IT'
-            LignePoste = 'Developer'
-            Fonction2 = 'Lead'
-            Constat = 'All good'
-            Tâche = 'Coding'
-            Commentaire = 'No comments'
-            Responsablesecteur = 'Jane Smith'
-            Heure = '12:00'
-            Datefin = '2024-01-02'
-            Groupe = 'Group A'
+            Datedebut = self.ui.Date.text()
+            Fonction = self.ui.TypeAudit.currentText()
+            Origine = self.ui.OrigineAction.currentText()
+            Redacteur = self.ui.Redacteur.currentText()
+            Secteur = self.ui.Secteur.currentText()
+            LignePoste = self.ui.LignePoste.toPlainText()
+            Fonction2 = self.ui.Type.currentText()
+            Constat = self.ui.Constat.toPlainText()
+            Tâche = self.ui.Mesure.toPlainText()
+            Commentaire = self.ui.Commentaire.toPlainText()
+            Responsablesecteur = self.ui.ResponsableAction.currentText()
+            Heure = self.ui.DelaieRealisation.text()
+            Datefin = self.ui.DateRealisation.text()
+            Groupe = self.ui.EvaluationEfficacite.text()
 
             # Convert QTableWidgetItem to string (or int if applicable)
             id_value = self.ui.ID.text()
@@ -113,21 +145,13 @@ class PAG(Page):
             cursor.execute("SELECT COUNT(*) FROM Feuil1 WHERE ID = %s", (id_value,))
             result = cursor.fetchone()
 
-            if result[0] > 0:
                 # ID exists, update the data
-                sql = """
+            sql = """
                 UPDATE Feuil1
-                SET Datedebut = %s, Fonction = %s, Origine = %s, Rédacteur_Rédactrice = %s, Secteur = %s, Ligne_Poste = %s, Fonction2 = %s, Constat = %s, Tâche = %s, Commentaires = %s, Responsablesecteur = %s, Heure = %s, Datefin = %s, Groupe = %s
+                SET `Datedebut` = %s, `Fonction` = %s, `Origine` = %s, `Rédacteur/Rédactrice` = %s, `Secteur` = %s, `Ligne/Poste` = %s, `Fonction2` = %s, `Constat` = %s, `Tâche` = %s, `Commentaire(s)` = %s, `Responsablesecteur` = %s, `Heure` = %s, `Datefin` = %s, `Groupe` = %s
                 WHERE ID = %s
                 """
-                values = (Datedebut, Fonction, Origine, Redacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin, Groupe, id_value)
-            else:
-                # ID does not exist, insert the data
-                sql = """
-                INSERT INTO Feuil1 (Datedebut, Fonction, Origine, Rédacteur_Rédactrice, Secteur, Ligne_Poste, Fonction2, Constat, Tâche, Commentaires, Responsablesecteur, Heure, Datefin, Groupe)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                """
-                values = (Datedebut, Fonction, Origine, Redacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin, Groupe)
+            values = (Datedebut, Fonction, Origine, Redacteur, Secteur, LignePoste, Fonction2, Constat, Tâche, Commentaire, Responsablesecteur, Heure, Datefin, Groupe, id_value)
 
             cursor.execute(sql, values)
             self.conn.commit()
@@ -135,9 +159,11 @@ class PAG(Page):
             cursor.close()
             self.conn.close()
 
+            self.ui.BouttonModifier.hide()
+
             self.clear_all(1)
 
-            self.hygiene.populate_table()
+            self.hygiene.populate_table(4)
 
     def Implementation_ComboBox(self):
 
