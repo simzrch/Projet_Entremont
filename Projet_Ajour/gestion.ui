@@ -237,16 +237,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEditAcces">
-   <property name="geometry">
-    <rect>
-     <x>340</x>
-     <y>710</y>
-     <width>101</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
@@ -412,7 +402,7 @@
   <widget class="QPushButton" name="ButtonEntrer">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>150</x>
      <y>740</y>
      <width>121</width>
      <height>31</height>
@@ -425,16 +415,6 @@
    </property>
    <property name="text">
     <string>Entrer</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEditBatiment">
-   <property name="geometry">
-    <rect>
-     <x>450</x>
-     <y>710</y>
-     <width>101</width>
-     <height>22</height>
-    </rect>
    </property>
   </widget>
   <widget class="QLabel" name="label_7">
@@ -453,6 +433,74 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QPushButton" name="ButtonSupprimer">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>740</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Supprimer</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBoxAcces">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>710</y>
+     <width>101</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="comboBoxBatiment">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>710</y>
+     <width>101</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Acceuil</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Bâtiment B</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Bâtiment C</string>
+    </property>
+   </item>
+  </widget>
   <zorder>ButtonAccueil</zorder>
   <zorder>ButtonGestion</zorder>
   <zorder>ButtonPerimetres</zorder>
@@ -462,7 +510,6 @@
   <zorder>lineEditNom</zorder>
   <zorder>lineEditPrenom</zorder>
   <zorder>lineEditMail</zorder>
-  <zorder>lineEditAcces</zorder>
   <zorder>label_3</zorder>
   <zorder>label_4</zorder>
   <zorder>label_5</zorder>
@@ -471,8 +518,10 @@
   <zorder>tableWidgetModule</zorder>
   <zorder>ButtonEntrer</zorder>
   <zorder>label_2</zorder>
-  <zorder>lineEditBatiment</zorder>
   <zorder>label_7</zorder>
+  <zorder>ButtonSupprimer</zorder>
+  <zorder>comboBoxAcces</zorder>
+  <zorder>comboBoxBatiment</zorder>
  </widget>
  <resources/>
  <connections/>

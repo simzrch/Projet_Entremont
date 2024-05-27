@@ -99,7 +99,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>C:/Users/SNIR_admin/Desktop/PAJ/projet_180h/photo/logo_entremont.png</pixmap>
+     <pixmap>Image_interface/logo_entremont.png</pixmap>
     </property>
    </widget>
    <widget class="QPushButton" name="ButtonHygiene">
@@ -129,6 +129,9 @@
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -141,15 +144,15 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../photo/montagne.png</pixmap>
+     <pixmap>Image_interface/montagne.png</pixmap>
     </property>
    </widget>
    <zorder>label_2</zorder>
    <zorder>verticalLayoutWidget</zorder>
    <zorder>horizontalLayoutWidget_2</zorder>
-   <zorder>label</zorder>
    <zorder>ButtonHygiene</zorder>
    <zorder>ButtonQualiter</zorder>
+   <zorder>label</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
