@@ -29,7 +29,7 @@
   <widget class="QPushButton" name="ButtonGestion">
    <property name="geometry">
     <rect>
-     <x>190</x>
+     <x>200</x>
      <y>90</y>
      <width>191</width>
      <height>51</height>
@@ -42,7 +42,7 @@
   <widget class="QPushButton" name="ButtonPerimetres">
    <property name="geometry">
     <rect>
-     <x>470</x>
+     <x>480</x>
      <y>90</y>
      <width>191</width>
      <height>51</height>
@@ -55,7 +55,7 @@
   <widget class="QPushButton" name="ButtonZones">
    <property name="geometry">
     <rect>
-     <x>750</x>
+     <x>760</x>
      <y>90</y>
      <width>191</width>
      <height>51</height>
@@ -68,7 +68,7 @@
   <widget class="QListView" name="listView_3">
    <property name="geometry">
     <rect>
-     <x>580</x>
+     <x>600</x>
      <y>200</y>
      <width>551</width>
      <height>491</height>
@@ -78,7 +78,7 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>520</x>
+     <x>510</x>
      <y>30</y>
      <width>131</width>
      <height>31</height>
@@ -96,7 +96,7 @@
   <widget class="QTableWidget" name="tableWidgetAcces">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>201</y>
      <width>521</width>
      <height>491</height>
@@ -156,7 +156,7 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>150</y>
      <width>521</width>
      <height>51</height>

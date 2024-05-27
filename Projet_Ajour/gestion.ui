@@ -76,7 +76,7 @@
   <widget class="QPushButton" name="ButtonZones">
    <property name="geometry">
     <rect>
-     <x>770</x>
+     <x>760</x>
      <y>90</y>
      <width>191</width>
      <height>51</height>
