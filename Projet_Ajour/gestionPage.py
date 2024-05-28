@@ -15,11 +15,11 @@ class GestionPage(Page):
 
         self.ui.setWindowTitle("Gestion des acces")
         self.accueilOrigine = accueil_origine
-        self.perimetre = perimetre
         self.Import_BDD = Import_Base()
         self.table_widget = self.ui.tableWidgetAcces
         self.populate_table()
         self.setup_ui_connections()
+        self.perimetre = perimetre
     #    self.perimetres_page = PerimetresPage(self)
         
 

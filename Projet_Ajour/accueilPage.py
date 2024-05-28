@@ -6,6 +6,7 @@ from LoginWindow import LoginWindow
 from qualitePage import QualitePage
 from hygienePage import HygienePage
 from perimetresPage import PerimetresPage
+from DocumentPage import DocumentPage
 
 class AccueilPage(Page):
 
@@ -33,12 +34,14 @@ class AccueilPage(Page):
         self.qualite_page = QualitePage(self)
         self.hygiene_page = HygienePage(self)
         self.perimetres_page = PerimetresPage(self)
+        self.document_page = DocumentPage(self)
 
 
         self.ui.ButtonQualiter.clicked.connect(self.domaine_qualiter)
         self.ui.ButtonHygiene.clicked.connect(self.domaine_hygiene)
         self.ui.ButtonRestriction.clicked.connect(self.login)
         self.ui.ButtonParametres.clicked.connect(self.domaine_parametres)
+        self.ui.ButtonDocuments.clicked.connect(self.domaine_document)
 
     def logout(self):
         if self.auth_system.logout():
@@ -57,6 +60,13 @@ class AccueilPage(Page):
         
         self.hygiene_page.show()
         self.hide() 
+
+    def domaine_document(self):
+        
+        self.document_page.show()
+        self.hide() 
+        self.document_page.authent_modif()
+        self.document_page.afficher_bouton()
 
     def login(self):
         print("gg")
