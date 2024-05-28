@@ -79,105 +79,23 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QPushButton" name="Button_1_Doc">
-      <property name="text">
-       <string>Button_1_Doc</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="Button_2_Doc">
-      <property name="text">
-       <string>Button_2_Doc</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="Button_3_Doc">
-      <property name="text">
-       <string>Button_3_Doc</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="Button_4_Doc">
-      <property name="text">
-       <string>Button_4_Doc</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="Button_5_Doc">
-      <property name="text">
-       <string>Button_5_Doc</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="Button_6_Doc">
-      <property name="text">
-       <string>Button_6_Doc</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="Button_7_Doc">
-      <property name="text">
-       <string>Button_7_Doc</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="Button_8_Doc">
-      <property name="text">
-       <string>Button_8_Doc</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="Button_10_Doc">
-      <property name="text">
-       <string>Button_9_Doc</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="Button_9_Doc">
-      <property name="text">
-       <string>Button_10_Doc</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>210</x>
-     <y>230</y>
-     <width>131</width>
-     <height>296</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout_2">
-    <item>
      <widget class="QPushButton" name="Button_11_Doc">
       <property name="text">
-       <string>Etude HACCP</string>
+       <string>Button_11_Doc</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QPushButton" name="Button_12_Doc">
       <property name="text">
-       <string>Etude Food FRAUD</string>
+       <string>Button_12_Doc</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QPushButton" name="Button_13_Doc">
       <property name="text">
-       <string>Etude Food Defense</string>
+       <string>Button_13_Doc</string>
       </property>
      </widget>
     </item>
@@ -225,6 +143,88 @@
     </item>
     <item>
      <widget class="QPushButton" name="Button_20_Doc">
+      <property name="text">
+       <string>Button_20_Doc</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>230</y>
+     <width>131</width>
+     <height>296</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QPushButton" name="Button_1_Doc">
+      <property name="text">
+       <string>Etude HACCP</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="Button_2_Doc">
+      <property name="text">
+       <string>Etude Food FRAUD</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="Button_3_Doc">
+      <property name="text">
+       <string>Etude Food Defense</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="Button_4_Doc">
+      <property name="text">
+       <string>Button_14_Doc</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="Button_5_Doc">
+      <property name="text">
+       <string>Button_5_Doc</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="Button_6_Doc">
+      <property name="text">
+       <string>Button_6_Doc</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="Button_7_Doc">
+      <property name="text">
+       <string>Button_7_Doc</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="Button_8_Doc">
+      <property name="text">
+       <string>Button_8_Doc</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="Button_9_Doc">
+      <property name="text">
+       <string>Button_9_Doc</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="Button_10_Doc">
       <property name="text">
        <string>Rapport Qualité</string>
       </property>
@@ -338,7 +338,18 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_5">
     <item>
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QPushButton" name="pushButton_1">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>crayon.png</normaloff>crayon.png</iconset>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_2">
       <property name="text">
        <string/>
       </property>
@@ -360,7 +371,29 @@
      </widget>
     </item>
     <item>
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>crayon.png</normaloff>crayon.png</iconset>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QPushButton" name="pushButton_5">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>crayon.png</normaloff>crayon.png</iconset>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_6">
       <property name="text">
        <string/>
       </property>
@@ -414,6 +447,18 @@
       </property>
      </widget>
     </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget_5">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>230</y>
+     <width>30</width>
+     <height>296</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_6">
     <item>
      <widget class="QPushButton" name="pushButton_11">
       <property name="text">
@@ -436,29 +481,6 @@
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_6">
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>crayon.png</normaloff>crayon.png</iconset>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget_5">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>230</y>
-     <width>30</width>
-     <height>296</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout_6">
     <item>
      <widget class="QPushButton" name="pushButton_13">
       <property name="text">
@@ -537,6 +559,29 @@
      </widget>
     </item>
     <item>
+     <widget class="QPushButton" name="pushButton_20">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>crayon.png</normaloff>crayon.png</iconset>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget_6">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>230</y>
+     <width>30</width>
+     <height>296</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_7">
+    <item>
      <widget class="QPushButton" name="pushButton_21">
       <property name="text">
        <string/>
@@ -569,18 +614,6 @@
       </property>
      </widget>
     </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget_6">
-   <property name="geometry">
-    <rect>
-     <x>590</x>
-     <y>230</y>
-     <width>30</width>
-     <height>296</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout_7">
     <item>
      <widget class="QPushButton" name="pushButton_24">
       <property name="text">
@@ -649,39 +682,6 @@
     </item>
     <item>
      <widget class="QPushButton" name="pushButton_30">
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>crayon.png</normaloff>crayon.png</iconset>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_31">
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>crayon.png</normaloff>crayon.png</iconset>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_32">
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>crayon.png</normaloff>crayon.png</iconset>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_33">
       <property name="text">
        <string/>
       </property>

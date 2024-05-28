@@ -89,17 +89,17 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>50</y>
-      <width>271</width>
-      <height>191</height>
+      <x>420</x>
+      <y>120</y>
+      <width>411</width>
+      <height>141</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>Image_interface/logo_entremont.png</pixmap>
+     <pixmap>Image_interface/logo_sodial.png</pixmap>
     </property>
    </widget>
    <widget class="QPushButton" name="ButtonHygiene">
@@ -147,12 +147,46 @@
      <pixmap>Image_interface/montagne.png</pixmap>
     </property>
    </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>50</y>
+      <width>271</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Image_interface/logo_entremont1.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>50</y>
+      <width>311</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Image_interface/logo_euroserum.png</pixmap>
+    </property>
+   </widget>
    <zorder>label_2</zorder>
    <zorder>verticalLayoutWidget</zorder>
    <zorder>horizontalLayoutWidget_2</zorder>
    <zorder>ButtonHygiene</zorder>
    <zorder>ButtonQualiter</zorder>
    <zorder>label</zorder>
+   <zorder>label_3</zorder>
+   <zorder>label_4</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

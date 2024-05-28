@@ -1,5 +1,6 @@
 from Page import Page
 from Import_Base import Import_Base
+#from perimetresPage import PerimetresPage
 from PySide6.QtWidgets import QLineEdit, QPushButton, QTableWidget, QTableWidgetItem
 from PySide6.QtUiTools import QUiLoader
 import mysql.connector
@@ -15,13 +16,13 @@ class GestionPage(Page):
 
         self.ui.setWindowTitle("Gestion des acces")
         self.accueilOrigine = accueil_origine
+        #self.PerimetresPage = PerimetresPage()
         self.Import_BDD = Import_Base()
         self.table_widget = self.ui.tableWidgetAcces
         self.populate_table()
         self.setup_ui_connections()
         self.perimetre = perimetre
-    #    self.perimetres_page = PerimetresPage(self)
-        
+
 
     def setup_ui_connections(self):
 
@@ -110,7 +111,7 @@ class GestionPage(Page):
         Mail = self.table_widget.item(row, 2).text() if self.table_widget.item(row, 2) else ""
         Acces = self.table_widget.item(row, 3).text() if self.table_widget.item(row, 3) else ""
         Batiment = self.table_widget.item(row, 4).text() if self.table_widget.item(row, 4) else ""
-        print(Nom, Prenom, Mail, Acces, Batiment)
+    #    print(Nom, Prenom, Mail, Acces, Batiment)
 
         self.Suppression_Donne(Nom, Prenom, Mail, Acces, Batiment)
          
@@ -169,13 +170,17 @@ class GestionPage(Page):
 
         self.accueilOrigine.show()
         self.hide()
+        
 
     def gestion_vers_perimetres(self):
 
         self.accueilOrigine.perimetres_page.show()
         self.hide()
+        self.accueilOrigine.perimetres_page.Recuperation_Donne()
+
 
     def gestion_vers_zones(self):
 
         self.perimetre.zones_page.show()
         self.hide()
+        self.perimetre.zones_page.Recuperation_Donne()

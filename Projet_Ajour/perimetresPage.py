@@ -26,12 +26,11 @@ class PerimetresPage(Page):
 
     def setup_ui_connections(self):
 
-        self.accueilOrigine
         self.ui.ButtonAccueil.clicked.connect(self.perimetres_vers_accueil)
         self.ui.ButtonGestion.clicked.connect(self.perimetres_vers_gestion)
         self.ui.ButtonZones.clicked.connect(self.perimetres_vers_zones)
 
-    def Envoie_Donne(self):
+    def Recuperation_Donne(self):
 
         print("Bonjour")
         connection = mysql.connector.connect(
@@ -42,16 +41,16 @@ class PerimetresPage(Page):
     )
         self.conn = connection
         cursor = self.conn.cursor()
-        valeur_colonne1 = self.ui.lineEditNom.text()
-        valeur_colonne2 = self.ui.lineEditPrenom.text()
-        valeur_colonne3 = self.ui.lineEditMail.text()
-        valeur_colonne4 = self.ui.comboBoxAcces.currentText()
-        valeur_colonne5 = self.ui.comboBoxBatiment.currentText()
+    #    valeur_colonne1 = self.ui.lineEditNom.text()
+    #    valeur_colonne2 = self.ui.lineEditPrenom.text()
+    #    valeur_colonne3 = self.ui.lineEditMail.text()
+    #    valeur_colonne4 = self.ui.comboBoxAcces.currentText()
+    #    valeur_colonne5 = self.ui.comboBoxBatiment.currentText()
 
         # Requête d'insertion avec spécification des colonnes
-        sql = "INSERT INTO Liste_acces (Nom, Prenom, Mail, Acces, Batiment) VALUES (%s, %s, %s, %s, %s)"
-        values = (valeur_colonne1, valeur_colonne2, valeur_colonne3, valeur_colonne4, valeur_colonne5)
-        cursor.execute(sql, values)
+    #    sql = "INSERT INTO Liste_acces (Nom, Prenom, Mail, Acces, Batiment) VALUES (%s, %s, %s, %s, %s)"
+    #    values = (valeur_colonne1, valeur_colonne2, valeur_colonne3, valeur_colonne4, valeur_colonne5)
+    #    cursor.execute(sql, values)
 
         # Valider la transaction
         self.conn.commit()
@@ -63,8 +62,8 @@ class PerimetresPage(Page):
         self.populate_table()
 
         # vider_les_LineEdit(self):
-        for widget in self.ui.findChildren(QLineEdit):
-            widget.clear()
+    #    for widget in self.ui.findChildren(QLineEdit):
+    #        widget.clear()
         print("Aurevoir")
 
     def populate_table(self):
@@ -98,3 +97,4 @@ class PerimetresPage(Page):
 
         self.zones_page.show()
         self.hide()
+        self.zones_page.Recuperation_Donne()
