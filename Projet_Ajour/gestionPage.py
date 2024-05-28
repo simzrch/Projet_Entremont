@@ -20,8 +20,7 @@ class GestionPage(Page):
         self.populate_table()
         self.setup_ui_connections()
         self.perimetre = perimetre
-    #    self.perimetres_page = PerimetresPage(self)
-        
+
 
     def setup_ui_connections(self):
 
@@ -110,7 +109,7 @@ class GestionPage(Page):
         Mail = self.table_widget.item(row, 2).text() if self.table_widget.item(row, 2) else ""
         Acces = self.table_widget.item(row, 3).text() if self.table_widget.item(row, 3) else ""
         Batiment = self.table_widget.item(row, 4).text() if self.table_widget.item(row, 4) else ""
-        print(Nom, Prenom, Mail, Acces, Batiment)
+    #    print(Nom, Prenom, Mail, Acces, Batiment)
 
         self.Suppression_Donne(Nom, Prenom, Mail, Acces, Batiment)
          

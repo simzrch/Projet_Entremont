@@ -19,6 +19,39 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">
+    QPushButton {
+        background-color: #D4211E;
+        color: white;
+        border-radius: 20px;
+        padding: 20px;
+        border: 1px solid #D4211E;
+        font-size: 10px;
+    }
+    QPushButton:hover {
+        background-color: #2980b9;
+    }
+    QPushButton:pressed {
+        background-color: #1e6f93;
+    }
+    QLabel {
+        font-size: 16px;
+        color: #2c3e50;
+    }
+    QTableWidget {
+        background-color: white;
+        border: 1px solid #dcdcdc;
+        gridline-color: #dcdcdc;
+    }
+    QTableWidget QHeaderView::section {
+        background-color: #3498db;
+        color: white;
+        padding: 5px;
+        border: 1px solid #2980b9;
+    }
+   </string>
+  </property>
   <widget class="QPushButton" name="ButtonAccueil">
    <property name="geometry">
     <rect>
@@ -34,12 +67,6 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">/*QPushButton {
-    background-color: red;
-	color: #ffffff; /* Couleur du texte (blanc dans cet exemple) 
-    border: none;
-}*/
-</string>
    </property>
    <property name="text">
     <string>Accueil</string>
