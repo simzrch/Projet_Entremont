@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1423</width>
+    <height>842</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+    QPushButton {
+        background-color: #3498db;
+        color: white;
+        border-radius: 10px;
+        padding: 10px;
+        border: 1px solid #2980b9;
+        font-size: 14px;
+    }
+    QPushButton:hover {
+        background-color: #2980b9;
+    }
+    QPushButton:pressed {
+        background-color: #1e6f93;
+    }
+    QLabel {
+        font-size: 16px;
+        color: #2c3e50;
+    }
+    QTableWidget {
+        background-color: white;
+        border: 1px solid #dcdcdc;
+        gridline-color: #dcdcdc;
+    }
+    QTableWidget QHeaderView::section {
+        background-color: #3498db;
+        color: white;
+        padding: 5px;
+        border: 1px solid #2980b9;
+    }
+   </string>
+  </property>
+  <widget class="QPushButton" name="ButtonAccueil">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>91</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Accueil</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>30</y>
+     <width>1141</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="ButtonQualiter">
+      <property name="text">
+       <string>Qualité</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="ButtonExportxls">
+      <property name="text">
+       <string>Export XLS</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="ButtonExportpdf">
+      <property name="text">
+       <string>Export PDF</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>90</y>
+     <width>201</width>
+     <height>621</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="ButtonRisques">
+      <property name="text">
+       <string>Cahier des risques</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="ButtonUnique">
+      <property name="text">
+       <string>Document unique</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="ButtonVCSA">
+      <property name="text">
+       <string>VCSA</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="ButtonPAG">
+      <property name="text">
+       <string>Plan d'action général</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="ButtonRestriction">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>730</y>
+     <width>151</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Niveau de restriction</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>59</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Higiène</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>231</x>
+     <y>91</y>
+     <width>731</width>
+     <height>731</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="page"/>
+   <widget class="QWidget" name="page_2"/>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>960</x>
+     <y>110</y>
+     <width>411</width>
+     <height>361</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>960</x>
+     <y>470</y>
+     <width>411</width>
+     <height>351</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>0</y>
+     <width>1441</width>
+     <height>851</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>Image_interface/Capture.PNG</pixmap>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="Filtre">
+   <property name="geometry">
+    <rect>
+     <x>960</x>
+     <y>90</y>
+     <width>411</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="currentText">
+    <string>LABORATOIRE R&amp;D</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>LABORATOIRE R&amp;D</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>R&amp;D</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>MAGASIN APPRO</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>HYGIENE NETTOYAGE</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>CAVES R&amp;D</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>LABORATOIRE USINE</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>GARAGE</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>1290</x>
+     <y>90</y>
+     <width>51</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Filtre</string>
+   </property>
+  </widget>
+  <zorder>label_2</zorder>
+  <zorder>ButtonAccueil</zorder>
+  <zorder>horizontalLayoutWidget</zorder>
+  <zorder>verticalLayoutWidget</zorder>
+  <zorder>ButtonRestriction</zorder>
+  <zorder>label</zorder>
+  <zorder>stackedWidget</zorder>
+  <zorder>tableWidget</zorder>
+  <zorder>tableWidget_2</zorder>
+  <zorder>Filtre</zorder>
+  <zorder>label_3</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
