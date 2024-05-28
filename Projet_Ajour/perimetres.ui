@@ -102,31 +102,11 @@
      <height>491</height>
     </rect>
    </property>
-   <row>
-    <property name="text">
-     <string/>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>1</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>2</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>3</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>4</string>
-    </property>
-   </row>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
    <column>
     <property name="text">
      <string>Nom</string>
