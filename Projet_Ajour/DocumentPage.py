@@ -23,14 +23,13 @@ class DocumentPage(Page):
         self.Import_Base = Import_Base()
         
         self.setup_ui_connections()
-        #self.afficher_bouton()
 
         chemin_bouton = self.recuperer_donnees_bouton()
-        button_widget = self.ui.findChild(QPushButton, "Button_9_Doc")
+        button_widget = self.ui.findChild(QPushButton, "Button_20_Doc")
         if button_widget:
             button_widget.setText(chemin_bouton)
         else:
-            print("Erreur: Widget Button_9_Doc introuvable.")
+            print("Erreur: Widget Button_20_Doc introuvable.")
         
              
     def setup_ui_connections(self):
@@ -39,9 +38,9 @@ class DocumentPage(Page):
         self.form_ui.setWindowTitle("Formulaire_document")
         self.form_ui.Bt_valider.clicked.connect(self.handle_bt_valider_click)
         self.form_ui.Bt_fichier.clicked.connect(self.open_file_explorer)
-        self.ui.pushButton_23.clicked.connect(self.vers_formulaire_document)
+        self.ui.pushButton_20.clicked.connect(self.vers_formulaire_document)
         self.form_ui.radioButton.clicked.connect(self.afficher_personne)
-        self.ui.Button_9_Doc.clicked.connect(self.ouverture_fichier)
+        self.ui.Button_20_Doc.clicked.connect(self.ouverture_fichier)
         self.ui.ButtonAccueil.clicked.connect(self.domaine_accueil)
         #self.ui.Button_restriction.clicked.connect(self.affiche)
        
@@ -69,11 +68,11 @@ class DocumentPage(Page):
 
     def update_button_text(self):
         new_button_name = self.form_ui.lineEdit.text()
-        button_widget = self.ui.findChild(QPushButton, "Button_9_Doc")
+        button_widget = self.ui.findChild(QPushButton, "Button_20_Doc")
         if button_widget:
             button_widget.setText(new_button_name)
         else:
-            print("Erreur: Widget Button_9_Doc introuvable.")
+            print("Erreur: Widget Button_20_Doc introuvable.")
         print(new_button_name)
         self.form_ui.close()
          
@@ -87,16 +86,16 @@ class DocumentPage(Page):
         print(f"Autorisation de l'utilisateur de niveau {authorization_level}")
 
         if authorization_level == 1:
-            self.ui.pushButton_23.setEnabled(False)
+            self.ui.pushButton_20.setEnabled(False)
             print("tous")
         elif authorization_level == 2:
-            self.ui.pushButton_23.setEnabled(False)
+            self.ui.pushButton_20.setEnabled(False)
             print("Niv2")
         elif authorization_level == 3:
-            self.ui.pushButton_23.setEnabled(True)
+            self.ui.pushButton_20.setEnabled(True)
         else:
             ("marche pas ")
-            self.ui.pushButton_23.setEnabled(False)
+            self.ui.pushButton_20.setEnabled(False)
 
         print("fin") 
 
@@ -116,25 +115,25 @@ class DocumentPage(Page):
         print(valeur_afficher == "Niv2")
 
         if valeur_afficher == "tous":
-            self.ui.Button_9_Doc.setEnabled(True)
+            self.ui.Button_20_Doc.setEnabled(True)
             print("tous")
         elif authorization_level == 2 and valeur_afficher == "Niv2":
-            self.ui.Button_9_Doc.setEnabled(True)
+            self.ui.Button_20_Doc.setEnabled(True)
             print("Niv2",)
         elif authorization_level == 2 and valeur_afficher == "Niv3":
-            self.ui.Button_9_Doc.setEnabled(False)
+            self.ui.Button_20_Doc.setEnabled(False)
             print("Niv3 mais désactivé pour Niv2")
         elif authorization_level == 3 and valeur_afficher == "Niv3":
-            self.ui.Button_9_Doc.setEnabled(True)
+            self.ui.Button_20_Doc.setEnabled(True)
             print("Niv3")
         elif authorization_level == 3 and valeur_afficher == "Niv2":
-            self.ui.Button_9_Doc.setEnabled(False)
+            self.ui.Button_20_Doc.setEnabled(False)
             print("Niv2 mais désactivé pour Niv3")
         elif authorization_level == 1 and valeur_afficher != "tous":
-            self.ui.Button_9_Doc.setEnabled(False)
+            self.ui.Button_20_Doc.setEnabled(False)
             print("Non autorisé")
         else:
-            self.ui.Button_9_Doc.setEnabled(False)
+            self.ui.Button_20_Doc.setEnabled(False)
             print("Aucune condition satisfaite")
 
 
@@ -295,6 +294,8 @@ class DocumentPage(Page):
             new_aff = "tous"
         elif self.form_ui.checkBox.isChecked() == True and self.form_ui.checkBox_2.isChecked() == True :
             new_aff = "Niv2_Niv3"
+        else:
+            new_aff = "rien"
 
 
         try:
