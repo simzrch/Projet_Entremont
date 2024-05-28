@@ -125,21 +125,21 @@
     <item>
      <widget class="QCheckBox" name="checkBox_3">
       <property name="text">
-       <string>Affichege a tous </string>
+       <string>Affichage a tous </string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QCheckBox" name="checkBox">
       <property name="text">
-       <string>Affichege niveau 2</string>
+       <string>Affichage niveau 2</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QCheckBox" name="checkBox_2">
       <property name="text">
-       <string>Affichege niveau 3</string>
+       <string>Affichage niveau 3</string>
       </property>
      </widget>
     </item>
