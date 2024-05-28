@@ -25,18 +25,20 @@
         background-color: #D4211E;
         color: white;
         border-radius: 20px;
-        padding: 20px;
-        border: 1px solid #D4211E;
-        font-size: 10px;
+        padding: 0px;
+        border: 0px solid #D4211E;
+        font-size: 12px;
     }
     QPushButton:hover {
-        background-color: #2980b9;
+        background-color: #FFFFFF;
+        color: #D4211E;
     }
     QPushButton:pressed {
-        background-color: #1e6f93;
+        background-color: #FFFFFF;
+        color: #D4211E;
     }
     QLabel {
-        font-size: 16px;
+        font-size: 20px;
         color: #2c3e50;
     }
     QTableWidget {

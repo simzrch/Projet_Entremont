@@ -26,7 +26,6 @@ class PerimetresPage(Page):
 
     def setup_ui_connections(self):
 
-        self.accueilOrigine
         self.ui.ButtonAccueil.clicked.connect(self.perimetres_vers_accueil)
         self.ui.ButtonGestion.clicked.connect(self.perimetres_vers_gestion)
         self.ui.ButtonZones.clicked.connect(self.perimetres_vers_zones)
@@ -98,3 +97,4 @@ class PerimetresPage(Page):
 
         self.zones_page.show()
         self.hide()
+        self.zones_page.Recuperation_Donne()

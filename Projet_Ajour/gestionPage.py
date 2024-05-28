@@ -1,5 +1,6 @@
 from Page import Page
 from Import_Base import Import_Base
+#from perimetresPage import PerimetresPage
 from PySide6.QtWidgets import QLineEdit, QPushButton, QTableWidget, QTableWidgetItem
 from PySide6.QtUiTools import QUiLoader
 import mysql.connector
@@ -15,6 +16,7 @@ class GestionPage(Page):
 
         self.ui.setWindowTitle("Gestion des acces")
         self.accueilOrigine = accueil_origine
+        #self.PerimetresPage = PerimetresPage()
         self.Import_BDD = Import_Base()
         self.table_widget = self.ui.tableWidgetAcces
         self.populate_table()
@@ -168,13 +170,17 @@ class GestionPage(Page):
 
         self.accueilOrigine.show()
         self.hide()
+        
 
     def gestion_vers_perimetres(self):
 
         self.accueilOrigine.perimetres_page.show()
         self.hide()
+        self.accueilOrigine.perimetres_page.Recuperation_Donne()
+
 
     def gestion_vers_zones(self):
 
         self.perimetre.zones_page.show()
         self.hide()
+        self.perimetre.zones_page.Recuperation_Donne()
