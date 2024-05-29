@@ -23,9 +23,11 @@ class HygienePage(Page):
         self.PAG = PAG(self)
         self.RDR = RDR(self)
 
-        #-----------
-        self.populate_table(0)
-        #----------
+        #-------
+        self.Num = 0
+        #-------
+
+        self.populate_table()
 
         self.setup_ui_connections()
 
@@ -40,11 +42,13 @@ class HygienePage(Page):
         self.ui.ButtonVCSA.clicked.connect(self.afficher_VCSA)
         self.ui.ButtonPAG.clicked.connect(self.afficher_PAG)
         self.ui.ButtonRestriction.clicked.connect(self.logout)
+        self.ui.Filtre.currentIndexChanged.connect(self.filtre)
 
-    def populate_table(self, i):
+    def populate_table(self):
 
         connection = self.Import_BDD.Connection_BDD()
         cursor = connection.cursor()
+        i = self.Num
         print(i)
 
         if (i == 0):
@@ -54,15 +58,19 @@ class HygienePage(Page):
             cursor.execute("SELECT `ID`, `Groupe`, `BU`, `Site`, `Origine`, `Origine2`, `Datedebut`, `Heure`, `Datefin`, `Visité` FROM `Feuil1` WHERE 1")
             data = cursor.fetchall()
         elif (i == 2):
-            cursor.execute("SELECT `ID`, `Groupe` FROM `Feuil1` WHERE 1")
+            cursor.execute("SELECT `ID`, `Groupe`, `BU`, `Site` FROM `Feuil1` WHERE 1")
             data = cursor.fetchall()
         elif (i == 3):
-            cursor.execute("SELECT `BU`, `Site`, `Origine` FROM `Feuil1` WHERE 1")
+            cursor.execute("SELECT `ID`, `Groupe`, `BU`, `Site`, `Origine` FROM `Feuil1` WHERE 1")
             data = cursor.fetchall()
         elif (i == 4):
-            cursor.execute("SELECT `ID`, `Groupe`, `BU`, `Site`, `Datedebut`, `Fonction`, `Origine`, `Rédacteur/Rédactrice`, `Secteur`, `Ligne/Poste`, `Fonction2`, `Constat`, `Tâche`, `Commentaire(s)`, `Responsablesecteur`, `Heure`, `Datefin` FROM `Feuil1` WHERE 1")
+            cursor.execute("SELECT `ID`, `Groupe`, `BU`, `Site`, `Datedebut`, `Fonction`, `Origine`, `Rédacteur/Rédactrice`, `Secteur`, `Ligne/Poste`, `Fonction2`, `Constat`, `Tâche`, `Commentaire(s)`, `Responsablesecteur`, `Datederéalisation`, `Datefin` FROM `Feuil1` WHERE 1")
             data = cursor.fetchall()
 
+        #self.filtre(i)
+        self.Table(data)
+
+    def Table(self, data):
             # Définir le nombre de lignes et de colonnes du tableau
         self.table_widget.setRowCount(len(data))
         self.table_widget.setColumnCount(len(data[0]))
@@ -73,12 +81,41 @@ class HygienePage(Page):
                 item = QTableWidgetItem(str(cell_data))
                 self.table_widget.setItem(row_idx, col_idx, item)
 
+    def filtre(self):
+        
+        connection = self.Import_BDD.Connection_BDD()
+        cursor = connection.cursor()
+        i = self.Num
+
+        if (i == 0):
+            sql = "SELECT `ID`, `Groupe`, `BU`, `Site`, `Datedebut`, `Fonction`, `Origine`, `Rédacteur/Rédactrice`, `Secteur`, `Ligne/Poste`, `Fonction2`, `Constat`, `Tâche`, `Commentaire(s)`, `Responsablesecteur`, `Datederéalisation`, `Datefin` FROM `Feuil1` WHERE Secteur = %s"
+        elif (i == 1):
+            sql = "SELECT `ID`, `Groupe`, `BU`, `Site`, `Origine`, `Origine2`, `Datedebut`, `Heure`, `Datefin`, `Visité` FROM `Feuil1` WHERE Secteur = %s"    
+        elif (i == 2):
+             sql = "SELECT `ID`, `Groupe`, `BU`, `Site` FROM `Feuil1` WHERE Secteur = %s"   
+        elif (i == 3):
+            sql = "SELECT `ID`, `Groupe`, `BU`, `Site`, `Origine` FROM `Feuil1` WHERE Secteur = %s" 
+        elif (i == 4):
+            sql = "SELECT `ID`, `Groupe`, `BU`, `Site`, `Datedebut`, `Fonction`, `Origine`, `Rédacteur/Rédactrice`, `Secteur`, `Ligne/Poste`, `Fonction2`, `Constat`, `Tâche`, `Commentaire(s)`, `Responsablesecteur`, `Datederéalisation`, `Datefin` FROM `Feuil1` WHERE Secteur = %s"        
+        
+        print("Numéro : ", i)
+        values = (self.ui.Filtre.currentText(),)
+        print("Valeur : ", values)
+        print("SQL : ", sql)
+        cursor.execute(sql, values)
+        data = cursor.fetchall()
+        print("Data : ", data)
+        self.Table(data)
+
+
     def Recuperation_donne(self, row):
 
         ID = self.table_widget.item(row, 0)
         Groupe = self.table_widget.item(row, 1)
         BU = self.table_widget.item(row, 2)
         Site = self.table_widget.item(row, 3)
+
+
         Datedebut = self.table_widget.item(row, 4)
         Fonction = self.table_widget.item(row, 5)
         Origine = self.table_widget.item(row, 6)
@@ -93,47 +130,34 @@ class HygienePage(Page):
         Heure = self.table_widget.item(row, 15)
         Datefin = self.table_widget.item(row, 16)
 
-        # ID = self.table_widget.item(row, 0)
-        # Datedebut = self.table_widget.item(row, 6)
-        # Fonction = self.table_widget.item(row, 10)
-        # Origine = self.table_widget.item(row, 4)
-        # Redacteur = self.table_widget.item(row, 12)
-        # Secteur = self.table_widget.item(row, 15)
-        # LignePoste = self.table_widget.item(row, 16)
-        # Fonction2 = self.table_widget.item(row, 13)
-        # Constat = self.table_widget.item(row, 25)
-        # Tâche = self.table_widget.item(row, 20)
-        # Commentaire = self.table_widget.item(row, 55)
-        # Responsablesecteur = self.table_widget.item(row, 17)
-        # Heure = self.table_widget.item(row, 7)
-        # Datefin = self.table_widget.item(row, 8)
-        # Groupe = self.table_widget.item(row, 1)
-    
          
         self.PAG.Implemente_info(ID, Groupe, Datedebut, Fonction, Origine, Rédacteur_Rédactrice, Secteur, Ligne_Poste, Fonction2, Constat, Tâche, Commentaires, Responsablesecteur, Heure, Datefin)
-        # self.RDR.Implemente_info()
-    
-        
+        self.RDR.Implemente_info(ID, Groupe, Datedebut, Fonction, Origine, Rédacteur_Rédactrice, Secteur, Ligne_Poste, Fonction2, Constat, Tâche, Commentaires, Responsablesecteur, Heure, Datefin)
+
 
     def afficher_Risque(self):
 
         self.RDR.Affichage()
-        self.populate_table(1)
+        self.Num = 1
+        self.populate_table()
         self.RDR.Implementation_ComboBox()
 
     def afficher_Unique(self):
 
-        self.populate_table(2)
+        self.Num = 2
+        self.populate_table()
 
     def afficher_VCSA(self):
 
-        self.populate_table(3)
+        self.Num = 3
+        self.populate_table()
     
     def afficher_PAG(self):
 
         self.PAG.Affichage()
         self.PAG.ui.BouttonModifier.hide()
-        self.populate_table(4)
+        self.Num = 4
+        self.populate_table()
         self.PAG.Implementation_ComboBox()
 
     def hygiene_vers_accueil(self):

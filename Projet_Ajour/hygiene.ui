@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1400</width>
-    <height>802</height>
+    <width>1423</width>
+    <height>842</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,18 +16,16 @@
   <property name="styleSheet">
    <string notr="true">
     QPushButton {
-        background-color: #3498db;
+        background-color: red;
         color: white;
         border-radius: 10px;
         padding: 10px;
-        border: 1px solid #2980b9;
+        border: 1px solid red;
         font-size: 14px;
     }
     QPushButton:hover {
-        background-color: #2980b9;
-    }
-    QPushButton:pressed {
-        background-color: #1e6f93;
+        background-color: white;
+		color: red;
     }
     QLabel {
         font-size: 16px;
@@ -35,14 +33,14 @@
     }
     QTableWidget {
         background-color: white;
-        border: 1px solid #dcdcdc;
-        gridline-color: #dcdcdc;
+        border: 1px solid white;
+        gridline-color: red;
     }
     QTableWidget QHeaderView::section {
-        background-color: #3498db;
+        background-color: red;
         color: white;
         padding: 5px;
-        border: 1px solid #2980b9;
+        border: 1px solid white;
     }
    </string>
   </property>
@@ -64,7 +62,7 @@
     <rect>
      <x>230</x>
      <y>30</y>
-     <width>991</width>
+     <width>1141</width>
      <height>61</height>
     </rect>
    </property>
@@ -111,7 +109,7 @@
      <x>30</x>
      <y>90</y>
      <width>201</width>
-     <height>501</height>
+     <height>621</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -148,8 +146,8 @@
   <widget class="QPushButton" name="ButtonRestriction">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>650</y>
+     <x>60</x>
+     <y>730</y>
      <width>151</width>
      <height>51</height>
     </rect>
@@ -177,10 +175,10 @@
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
-     <x>231</x>
+     <x>241</x>
      <y>91</y>
-     <width>731</width>
-     <height>661</height>
+     <width>711</width>
+     <height>731</height>
     </rect>
    </property>
    <property name="currentIndex">
@@ -193,7 +191,7 @@
    <property name="geometry">
     <rect>
      <x>960</x>
-     <y>90</y>
+     <y>110</y>
      <width>411</width>
      <height>361</height>
     </rect>
@@ -203,7 +201,7 @@
    <property name="geometry">
     <rect>
      <x>960</x>
-     <y>450</y>
+     <y>470</y>
      <width>411</width>
      <height>351</height>
     </rect>
@@ -212,10 +210,10 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-10</x>
      <y>0</y>
-     <width>1401</width>
-     <height>801</height>
+     <width>1441</width>
+     <height>851</height>
     </rect>
    </property>
    <property name="text">
@@ -223,6 +221,67 @@
    </property>
    <property name="pixmap">
     <pixmap>Image_interface/Capture.PNG</pixmap>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="Filtre">
+   <property name="geometry">
+    <rect>
+     <x>960</x>
+     <y>90</y>
+     <width>411</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="currentText">
+    <string>LABORATOIRE R&amp;D</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>LABORATOIRE R&amp;D</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>R&amp;D</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>MAGASIN APPRO</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>HYGIENE NETTOYAGE</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>CAVES R&amp;D</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>LABORATOIRE USINE</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>GARAGE</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>1290</x>
+     <y>90</y>
+     <width>51</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Filtre</string>
    </property>
   </widget>
   <zorder>label_2</zorder>
@@ -234,6 +293,8 @@
   <zorder>stackedWidget</zorder>
   <zorder>tableWidget</zorder>
   <zorder>tableWidget_2</zorder>
+  <zorder>Filtre</zorder>
+  <zorder>label_3</zorder>
  </widget>
  <resources/>
  <connections/>
