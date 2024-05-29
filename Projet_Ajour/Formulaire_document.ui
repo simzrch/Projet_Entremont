@@ -103,13 +103,13 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>140</y>
-     <width>101</width>
+     <y>160</y>
+     <width>111</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Affiché le bouton</string>
+    <string>Afficher les boutons</string>
    </property>
   </widget>
   <widget class="QWidget" name="horizontalLayoutWidget">
@@ -117,7 +117,7 @@
     <rect>
      <x>20</x>
      <y>190</y>
-     <width>391</width>
+     <width>321</width>
      <height>22</height>
     </rect>
    </property>
@@ -125,38 +125,18 @@
     <item>
      <widget class="QCheckBox" name="checkBox_3">
       <property name="text">
-       <string>Affichage a tous </string>
+       <string>Affichage pour tous </string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QCheckBox" name="checkBox">
       <property name="text">
-       <string>Affichage niveau 2</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QCheckBox" name="checkBox_2">
-      <property name="text">
-       <string>Affichage niveau 3</string>
+       <string>Affichage niveau 2 et niveau 3</string>
       </property>
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QRadioButton" name="radioButton">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>160</y>
-     <width>89</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Oui</string>
-   </property>
   </widget>
  </widget>
  <resources/>
