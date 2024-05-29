@@ -149,9 +149,6 @@
      </property>
     </widget>
    </item>
-   <item row="25" column="0">
-    <widget class="QLineEdit" name="DateRealisation"/>
-   </item>
    <item row="3" column="0">
     <widget class="QLabel" name="label_3">
      <property name="text">
@@ -222,9 +219,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-   </item>
-   <item row="0" column="1">
-    <widget class="QLineEdit" name="Date"/>
    </item>
    <item row="4" column="0">
     <widget class="QComboBox" name="OrigineAction"/>
@@ -355,6 +349,12 @@ li.checked::marker { content: &quot;\2612&quot;; }
       <string>Modifier</string>
      </property>
     </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QDateEdit" name="Date"/>
+   </item>
+   <item row="25" column="0">
+    <widget class="QDateEdit" name="DateRealisation"/>
    </item>
   </layout>
  </widget>

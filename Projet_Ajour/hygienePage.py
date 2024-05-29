@@ -64,7 +64,7 @@ class HygienePage(Page):
             cursor.execute("SELECT `ID`, `Groupe`, `BU`, `Site`, `Origine` FROM `Feuil1` WHERE 1")
             data = cursor.fetchall()
         elif (i == 4):
-            cursor.execute("SELECT `ID`, `Groupe`, `BU`, `Site`, `Datedebut`, `Fonction`, `Origine`, `Rédacteur/Rédactrice`, `Secteur`, `Ligne/Poste`, `Fonction2`, `Constat`, `Tâche`, `Commentaire(s)`, `Responsablesecteur`, `Heure`, `Datefin` FROM `Feuil1` WHERE 1")
+            cursor.execute("SELECT `ID`, `Groupe`, `BU`, `Site`, `Datedebut`, `Fonction`, `Origine`, `Rédacteur/Rédactrice`, `Secteur`, `Ligne/Poste`, `Fonction2`, `Constat`, `Tâche`, `Commentaire(s)`, `Responsablesecteur`, `Datederéalisation`, `Datefin` FROM `Feuil1` WHERE 1")
             data = cursor.fetchall()
 
         #self.filtre(i)
@@ -88,7 +88,7 @@ class HygienePage(Page):
         i = self.Num
 
         if (i == 0):
-            sql = "SELECT `ID`, `Groupe`, `BU`, `Site`, `Datedebut`, `Fonction`, `Origine`, `Rédacteur/Rédactrice`, `Secteur`, `Ligne/Poste`, `Fonction2`, `Constat`, `Tâche`, `Commentaire(s)`, `Responsablesecteur`, `Heure`, `Datefin` FROM `Feuil1` WHERE Secteur = %s"
+            sql = "SELECT `ID`, `Groupe`, `BU`, `Site`, `Datedebut`, `Fonction`, `Origine`, `Rédacteur/Rédactrice`, `Secteur`, `Ligne/Poste`, `Fonction2`, `Constat`, `Tâche`, `Commentaire(s)`, `Responsablesecteur`, `Datederéalisation`, `Datefin` FROM `Feuil1` WHERE Secteur = %s"
         elif (i == 1):
             sql = "SELECT `ID`, `Groupe`, `BU`, `Site`, `Origine`, `Origine2`, `Datedebut`, `Heure`, `Datefin`, `Visité` FROM `Feuil1` WHERE Secteur = %s"    
         elif (i == 2):
@@ -96,7 +96,7 @@ class HygienePage(Page):
         elif (i == 3):
             sql = "SELECT `ID`, `Groupe`, `BU`, `Site`, `Origine` FROM `Feuil1` WHERE Secteur = %s" 
         elif (i == 4):
-            sql = "SELECT `ID`, `Groupe`, `BU`, `Site`, `Datedebut`, `Fonction`, `Origine`, `Rédacteur/Rédactrice`, `Secteur`, `Ligne/Poste`, `Fonction2`, `Constat`, `Tâche`, `Commentaire(s)`, `Responsablesecteur`, `Heure`, `Datefin` FROM `Feuil1` WHERE Secteur = %s"        
+            sql = "SELECT `ID`, `Groupe`, `BU`, `Site`, `Datedebut`, `Fonction`, `Origine`, `Rédacteur/Rédactrice`, `Secteur`, `Ligne/Poste`, `Fonction2`, `Constat`, `Tâche`, `Commentaire(s)`, `Responsablesecteur`, `Datederéalisation`, `Datefin` FROM `Feuil1` WHERE Secteur = %s"        
         
         print("Numéro : ", i)
         values = (self.ui.Filtre.currentText(),)

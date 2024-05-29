@@ -1,5 +1,6 @@
 from Page import Page
 from Import_Base import Import_Base
+from PySide6.QtCore import QDate
 from PySide6.QtUiTools import QUiLoader
 from PySide6 import QtWidgets
 from PySide6 import QtCore, QtWidgets
@@ -30,7 +31,12 @@ class PAG(Page):
         # self.ui.DelaieRealisation.setText(item.text())
 
         self.ui.ID.setText(ID.text())
-        self.ui.Date.setText(Datedebut.text())
+
+        date_str = Datedebut.text()
+        date_format = "dd/MM/yyyy"  # Adjust the format to match your date string
+        date = QDate.fromString(date_str, date_format)
+        self.ui.Date.setDate(date)
+
         self.ui.TypeAudit.setCurrentText(Fonction.text())
         self.ui.OrigineAction.setCurrentText(Origine.text())
         self.ui.Redacteur.setCurrentText(Redacteur.text())
@@ -41,8 +47,14 @@ class PAG(Page):
         self.ui.Mesure.setPlainText(Tâche.text())
         self.ui.Commentaire.setPlainText(Commentaire.text())
         self.ui.ResponsableAction.setCurrentText(Responsablesecteur.text())
-        self.ui.DelaieRealisation.setText(Heure.text())
-        self.ui.DateRealisation.setText(Datefin.text())
+        
+        self.ui.DelaieRealisation.setText(Datefin.text())
+
+        heure_str = Heure.text()
+        heure = QDate.fromString(heure_str, date_format)
+
+        self.ui.DateRealisation.setDate(heure)
+
         self.ui.EvaluationEfficacite.setText(Groupe.text())
 
         self.ui.BouttonModifier.show()
@@ -66,7 +78,7 @@ class PAG(Page):
             #self.insert_id_into_database(new_id)
             print("Generated ID:", new_id)
 
-            Datedebut = self.ui.Date.text()
+            Datedebut = self.ui.Date.date().toString("yyyy-MM-dd")
             Fonction = self.ui.TypeAudit.currentText()
             Origine = self.ui.OrigineAction.currentText()
             Redacteur = self.ui.Redacteur.currentText()
@@ -78,7 +90,7 @@ class PAG(Page):
             Commentaire = self.ui.Commentaire.toPlainText()
             Responsablesecteur = self.ui.ResponsableAction.currentText()
             Heure = self.ui.DelaieRealisation.text()
-            Datefin = self.ui.DateRealisation.text()
+            Datefin = self.ui.DateRealisation.date().toString("yyyy-MM-dd")
             Groupe = self.ui.EvaluationEfficacite.text()
             
             self.conn = self.Import_Base.Connection_BDD()
@@ -98,7 +110,7 @@ class PAG(Page):
 
             self.clear_all(1)
 
-            self.hygiene.populate_table(4)
+            self.hygiene.populate_table()
 
     def get_last_id_from_database(self):
         # Connect to your MySQL database
@@ -120,7 +132,7 @@ class PAG(Page):
     def Envoie_Données2(self):
           
         
-            Datedebut = self.ui.Date.text()
+            Datedebut = self.ui.Date.date().toString("yyyy-MM-dd")
             Fonction = self.ui.TypeAudit.currentText()
             Origine = self.ui.OrigineAction.currentText()
             Redacteur = self.ui.Redacteur.currentText()
@@ -132,7 +144,7 @@ class PAG(Page):
             Commentaire = self.ui.Commentaire.toPlainText()
             Responsablesecteur = self.ui.ResponsableAction.currentText()
             Heure = self.ui.DelaieRealisation.text()
-            Datefin = self.ui.DateRealisation.text()
+            Datefin = self.ui.DateRealisation.date().toString("yyyy-MM-dd")
             Groupe = self.ui.EvaluationEfficacite.text()
 
             # Convert QTableWidgetItem to string (or int if applicable)
@@ -163,8 +175,7 @@ class PAG(Page):
             self.ui.BouttonModifier.hide()
 
             self.clear_all(1)
-
-            self.hygiene.populate_table(4)
+            self.hygiene.populate_table()
 
     def Implementation_ComboBox(self):
 
