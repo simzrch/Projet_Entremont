@@ -314,7 +314,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="pushButton_44">
+  <widget class="QPushButton" name="button_restriction">
    <property name="geometry">
     <rect>
      <x>30</x>

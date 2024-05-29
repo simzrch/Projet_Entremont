@@ -38,10 +38,10 @@ class systemeAuthentification:
             return False
         else :
             print(("Authentification reussie test"))
-            #print(rows)
+            print(rows)
             #print (len(rows))
             user_data = rows[0]
-            self.logged_in_user = User(username=user_data[0], role=user_data[0])
+            self.logged_in_user = User(username=user_data[2], role=user_data[1])
             print(f"Bienvenue, {username}! Vous êtes connecté en tant que {self.logged_in_user.role}")
             return True
             
@@ -56,16 +56,26 @@ class systemeAuthentification:
             print("Aucun utilisateur connecté")
             return False
 
+
+
     def is_authorized(self, required_role):
-        if self.logged_in_user.role == "Niv1" and required_role.lower() == "basic":
-                return True
-        elif self.logged_in_user.role == "Niv2" and required_role.lower() != "admin":
-                return True
+        
+        if self.logged_in_user.role == "Niv1" :
+                return True and 1
+        elif self.logged_in_user.role == "Niv2": 
+                
+                return True and 2
         elif self.logged_in_user.role == "Niv3":
-                return True
+                return True and 3
         return False
         
         
-
+    def affichage_niveau(self):
+        if self.logged_in_user:
+            print(f"vous êtes un {self.logged_in_user.username}")
+            
+        else:
+            print("Aucun utilisateur connecté")
+            
 
 
