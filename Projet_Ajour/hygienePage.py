@@ -169,8 +169,14 @@ class HygienePage(Page):
 
         self.accueilOrigine.qualite_page.show()
         self.hide()
+        self.accueilOrigine.qualite_page.affiche_niveau_qual()
 
-    def logout(self):
+    def affiche_niveau_hyg(self):
+        authorization_level = self.auth_system.is_authorized("")
+        print("je suis niveau", authorization_level)
 
-        if self.auth_system.logout():
-            print("Déconnexion réussie")
+        button_restriction = self.ui.ButtonRestriction1 
+        if button_restriction:
+            button_restriction.setText(f"Niveau: {authorization_level}")  # Sinon, affiche le niveau actuel
+        else:
+            print("Erreur: Widget button_restriction introuvable.")

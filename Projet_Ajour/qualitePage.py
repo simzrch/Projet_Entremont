@@ -32,10 +32,17 @@ class QualitePage(Page):
         
         self.accueilOrigine.hygiene_page.show()
         self.hide()
+        self.accueilOrigine.hygiene_page.affiche_niveau_hyg()
 
     def domaine_risques(self):
         print("test button")
 
-    def logout(self):
-        if self.auth_system.logout():
-            print("Déconnexion réussie")
+    def affiche_niveau_qual(self):
+        authorization_level = self.auth_system.is_authorized("")
+        print("je suis niveau", authorization_level)
+
+        button_restriction = self.ui.ButtonRestriction 
+        if button_restriction:
+            button_restriction.setText(f"Niveau: {authorization_level}")  # Sinon, affiche le niveau actuel
+        else:
+            print("Erreur: Widget button_restriction introuvable.")
