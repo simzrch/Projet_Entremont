@@ -41,7 +41,6 @@ class HygienePage(Page):
         self.ui.ButtonUnique.clicked.connect(self.afficher_Unique)
         self.ui.ButtonVCSA.clicked.connect(self.afficher_VCSA)
         self.ui.ButtonPAG.clicked.connect(self.afficher_PAG)
-        self.ui.ButtonRestriction.clicked.connect(self.logout)
         self.ui.Filtre.currentIndexChanged.connect(self.filtre)
 
     def populate_table(self):

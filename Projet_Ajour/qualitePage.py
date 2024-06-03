@@ -21,7 +21,7 @@ class QualitePage(Page):
 
         self.ui.ButtonAccueil.clicked.connect(self.hygiene_vers_accueil)
         self.ui.ButtonHygiene.clicked.connect(self.qualiter_vers_hygiene)
-        self.ui.ButtonRestriction.clicked.connect(self.logout)
+        
 
     def hygiene_vers_accueil(self):
         

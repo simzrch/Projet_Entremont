@@ -285,10 +285,10 @@
    </property>
   </widget>
   <zorder>label_2</zorder>
+  <zorder>ButtonRestriction1</zorder>
   <zorder>ButtonAccueil</zorder>
   <zorder>horizontalLayoutWidget</zorder>
   <zorder>verticalLayoutWidget</zorder>
-  <zorder>ButtonRestriction</zorder>
   <zorder>label</zorder>
   <zorder>stackedWidget</zorder>
   <zorder>tableWidget</zorder>

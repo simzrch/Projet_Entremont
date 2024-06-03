@@ -55,11 +55,13 @@ class AccueilPage(Page):
 
         self.qualite_page.show()
         self.hide()
+        self.qualite_page.affiche_niveau_qual()
 
     def domaine_hygiene(self):
         
         self.hygiene_page.show()
         self.hide() 
+        self.hygiene_page.affiche_niveau_hyg()
 
     def domaine_document(self):
         
@@ -67,7 +69,7 @@ class AccueilPage(Page):
         self.hide() 
         self.document_page.authent_modif()
         self.document_page.afficher_bouton()
-        self.document_page.affiche_niveau()
+        
 
     def login(self):
         print("gg")
