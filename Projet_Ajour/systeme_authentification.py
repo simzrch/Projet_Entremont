@@ -9,8 +9,8 @@ class systemeAuthentification:
         self.conn = mysql.connector.connect(host="192.168.1.213", user="root", password="root", database="test_proje_entremont")
         self.cursor = self.conn.cursor()
         self.logged_in_user = None
-
-
+        
+        
 
     def hash_password(self, password):
         # Convertir le mot de passe en octect
@@ -50,6 +50,8 @@ class systemeAuthentification:
         if self.logged_in_user:
             print(f"Déconnexion de l'utilisateur {self.logged_in_user.username}")
             self.logged_in_user = None
+            
+            
             return True
             
         else:
@@ -63,7 +65,6 @@ class systemeAuthentification:
         if self.logged_in_user.role == "Niv1" :
                 return True and 1
         elif self.logged_in_user.role == "Niv2": 
-                
                 return True and 2
         elif self.logged_in_user.role == "Niv3":
                 return True and 3
@@ -77,5 +78,5 @@ class systemeAuthentification:
         else:
             print("Aucun utilisateur connecté")
             
-
+    
 

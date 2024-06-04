@@ -43,10 +43,13 @@ class AccueilPage(Page):
         self.ui.ButtonParametres.clicked.connect(self.domaine_parametres)
         self.ui.ButtonDocuments.clicked.connect(self.domaine_document)
 
+        self.acces_para()
+
     def logout(self):
         if self.auth_system.logout():
             print("Déconnexion réussie")
             self.ui.ButtonRestriction.show()  # Afficher le bouton Restriction après la déconnexion
+            self.acces_para()
             
     #    else:
     #        print("Aucun utilisateur connecté")
@@ -84,3 +87,26 @@ class AccueilPage(Page):
 
         self.perimetres_page.show()
         self.hide()
+
+
+    def acces_para(self):
+
+        authorization_level = self.auth_system.is_authorized
+
+        print(f"Autorisation de l'utilisateur de niveau {authorization_level}")
+        button_widget = self.ui.ButtonParametres 
+
+        if button_widget is not None:
+            if authorization_level == 1 or authorization_level == 2:
+                button_widget.setEnabled(False)
+                print("désactivé")
+            elif authorization_level == 3:
+                button_widget.setEnabled(True)
+                print("activé pour administrateur")
+            else:
+                button_widget.setEnabled(False)
+                print("désactivé")
+        else:
+            print(f"Erreur: Widget introuvable.")
+
+        print("fin") 

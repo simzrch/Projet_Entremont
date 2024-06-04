@@ -49,10 +49,31 @@ class LoginWindow(QWidget):
             QMessageBox.information(self, "Login réussie", f"Welcome, {username}! de {self.auth_system.logged_in_user.role}")
             self.close()  # Fermer la fenêtre de dialogue après le clic sur OK
             self.accueil_page.ui.ButtonRestriction.hide()  # Masquer le bouton de restriction dans AccueilPage
-
+            self.acces_para1()
             return self.auth_system.logged_in_user.role 
-                
+            
+            
         
         else:
             QMessageBox.warning(self, "Login Failed", "Invalid username or password.")
 
+    def acces_para1(self):
+        authorization_level = self.auth_system.is_authorized("")
+
+        print(f"Autorisation de l'utilisateur de niveau {authorization_level}")
+        button_widget = self.accueil_page.ui.ButtonParametres 
+
+        if button_widget is not None:
+            if authorization_level == 1 or authorization_level == 2:
+                button_widget.setEnabled(False)
+                print("désactivé")
+            elif authorization_level == 3:
+                button_widget.setEnabled(True)
+                print("activé pour administrateur")
+            else:
+                button_widget.setEnabled(False)
+                print("désactivé")
+        else:
+            print(f"Erreur: Widget introuvable.")
+
+        print("fin") 
