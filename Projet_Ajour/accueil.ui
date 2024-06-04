@@ -13,6 +13,37 @@
   <property name="windowTitle">
    <string>MainProjet</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">
+    QPushButton {
+        background-color: #D11A0B;
+        color: white;
+        border-radius: 20px;
+        padding: 0px;
+        border: 1px solid #D11A0B;
+        font-size: 12px;
+    }
+    QPushButton:hover {
+        background-color: #FFFFFF;
+        color: #D11A0B;
+    }
+    QPushButton:pressed {
+        background-color: #FFFFFF;
+        color: #D11A0B;
+    }
+    QTableWidget {
+        background-color: #FFFFFF;
+        border: 1px solid #dcdcdc;
+        gridline-color: #dcdcdc;
+    }
+    QTableWidget QHeaderView::section {
+        background-color: #D11A0B;
+        color: #FFFFFF;
+        padding: 5px;
+        border: 1px solid #D11A0B;
+    }
+   </string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
@@ -108,7 +139,7 @@
       <x>660</x>
       <y>280</y>
       <width>191</width>
-      <height>24</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -121,7 +152,7 @@
       <x>390</x>
       <y>280</y>
       <width>211</width>
-      <height>24</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -185,8 +216,8 @@
    <zorder>ButtonHygiene</zorder>
    <zorder>ButtonQualiter</zorder>
    <zorder>label</zorder>
-   <zorder>label_3</zorder>
    <zorder>label_4</zorder>
+   <zorder>label_3</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

@@ -22,31 +22,31 @@
   <property name="styleSheet">
    <string notr="true">
     QPushButton {
-        background-color: #D4211E;
+        background-color: #D11A0B;
         color: white;
         border-radius: 20px;
         padding: 0px;
-        border: 0px solid #D4211E;
+        border: 1px solid #D11A0B;
         font-size: 12px;
     }
     QPushButton:hover {
         background-color: #FFFFFF;
-        color: #D4211E;
+        color: #D11A0B;
     }
     QPushButton:pressed {
         background-color: #FFFFFF;
-        color: #D4211E;
+        color: #D11A0B;
     }
     QTableWidget {
-        background-color: white;
+        background-color: #FFFFFF;
         border: 1px solid #dcdcdc;
         gridline-color: #dcdcdc;
     }
     QTableWidget QHeaderView::section {
-        background-color: #3498db;
-        color: white;
+        background-color: #D11A0B;
+        color: #FFFFFF;
         padding: 5px;
-        border: 1px solid #2980b9;
+        border: 1px solid #D11A0B;
     }
    </string>
   </property>
@@ -136,7 +136,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>-1</pointsize>
+     <pointsize>20</pointsize>
     </font>
    </property>
    <property name="text">
@@ -154,7 +154,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>-1</pointsize>
+     <pointsize>18</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -320,26 +320,19 @@
     <rect>
      <x>600</x>
      <y>200</y>
-     <width>421</width>
+     <width>431</width>
      <height>131</height>
     </rect>
    </property>
    <property name="sizeAdjustPolicy">
     <enum>QAbstractScrollArea::AdjustIgnored</enum>
    </property>
-   <row>
-    <property name="text">
-     <string/>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>1</string>
-    </property>
-   </row>
+   <row/>
+   <row/>
+   <row/>
    <column>
     <property name="text">
-     <string>Nouvelle colonne</string>
+     <string>Nom</string>
     </property>
    </column>
    <column>
@@ -363,35 +356,15 @@
     <rect>
      <x>600</x>
      <y>370</y>
-     <width>421</width>
+     <width>431</width>
      <height>321</height>
     </rect>
    </property>
-   <row>
-    <property name="text">
-     <string/>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>1</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>2</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>3</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>4</string>
-    </property>
-   </row>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
    <column>
     <property name="text">
      <string>Module</string>

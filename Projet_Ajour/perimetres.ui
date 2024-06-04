@@ -13,6 +13,37 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">
+    QPushButton {
+        background-color: #D11A0B;
+        color: white;
+        border-radius: 20px;
+        padding: 0px;
+        border: 1px solid #D11A0B;
+        font-size: 12px;
+    }
+    QPushButton:hover {
+        background-color: #FFFFFF;
+        color: #D11A0B;
+    }
+    QPushButton:pressed {
+        background-color: #FFFFFF;
+        color: #D11A0B;
+    }
+    QTableWidget {
+        background-color: #FFFFFF;
+        border: 1px solid #dcdcdc;
+        gridline-color: #dcdcdc;
+    }
+    QTableWidget QHeaderView::section {
+        background-color: #D11A0B;
+        color: #FFFFFF;
+        padding: 5px;
+        border: 1px solid #D11A0B;
+    }
+   </string>
+  </property>
   <widget class="QPushButton" name="ButtonAccueil">
    <property name="geometry">
     <rect>
