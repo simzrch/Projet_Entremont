@@ -148,7 +148,7 @@
     <rect>
      <x>30</x>
      <y>150</y>
-     <width>521</width>
+     <width>531</width>
      <height>51</height>
     </rect>
    </property>
@@ -180,7 +180,7 @@
     <rect>
      <x>30</x>
      <y>201</y>
-     <width>521</width>
+     <width>531</width>
      <height>491</height>
     </rect>
    </property>
@@ -318,7 +318,7 @@
   <widget class="QTableWidget" name="tableWidgetNouv">
    <property name="geometry">
     <rect>
-     <x>600</x>
+     <x>610</x>
      <y>200</y>
      <width>431</width>
      <height>131</height>
@@ -354,7 +354,7 @@
   <widget class="QTableWidget" name="tableWidgetModule">
    <property name="geometry">
     <rect>
-     <x>600</x>
+     <x>610</x>
      <y>370</y>
      <width>431</width>
      <height>321</height>

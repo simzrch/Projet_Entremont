@@ -99,7 +99,7 @@
   <widget class="QListView" name="listView_3">
    <property name="geometry">
     <rect>
-     <x>600</x>
+     <x>610</x>
      <y>200</y>
      <width>551</width>
      <height>491</height>
@@ -129,7 +129,7 @@
     <rect>
      <x>30</x>
      <y>201</y>
-     <width>521</width>
+     <width>531</width>
      <height>491</height>
     </rect>
    </property>
@@ -169,7 +169,7 @@
     <rect>
      <x>30</x>
      <y>150</y>
-     <width>521</width>
+     <width>531</width>
      <height>51</height>
     </rect>
    </property>

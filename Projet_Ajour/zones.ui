@@ -123,7 +123,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>600</x>
+     <x>610</x>
      <y>180</y>
      <width>601</width>
      <height>581</height>
@@ -142,7 +142,7 @@
   <widget class="QPushButton" name="ButtonBatA">
    <property name="geometry">
     <rect>
-     <x>860</x>
+     <x>870</x>
      <y>280</y>
      <width>71</width>
      <height>51</height>
@@ -349,7 +349,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>14</pointsize>
+     <pointsize>-1</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -367,7 +367,7 @@
   <widget class="QPushButton" name="ButtonBatB">
    <property name="geometry">
     <rect>
-     <x>830</x>
+     <x>840</x>
      <y>470</y>
      <width>91</width>
      <height>41</height>
@@ -375,7 +375,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>14</pointsize>
+     <pointsize>-1</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -395,7 +395,7 @@
     <rect>
      <x>30</x>
      <y>201</y>
-     <width>521</width>
+     <width>531</width>
      <height>491</height>
     </rect>
    </property>
@@ -435,7 +435,7 @@
     <rect>
      <x>30</x>
      <y>150</y>
-     <width>521</width>
+     <width>531</width>
      <height>51</height>
     </rect>
    </property>
@@ -465,7 +465,7 @@
   <widget class="QPushButton" name="ButtonBatC">
    <property name="geometry">
     <rect>
-     <x>950</x>
+     <x>960</x>
      <y>430</y>
      <width>141</width>
      <height>161</height>
@@ -473,7 +473,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>14</pointsize>
+     <pointsize>-1</pointsize>
     </font>
    </property>
    <property name="styleSheet">
