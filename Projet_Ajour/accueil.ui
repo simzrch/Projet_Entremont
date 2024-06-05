@@ -18,8 +18,7 @@
     QPushButton {
         background-color: #D11A0B;
         color: white;
-        border-radius: 20px;
-        padding: 0px;
+        border-radius: 15px;
         border: 1px solid #D11A0B;
         font-size: 12px;
     }
@@ -45,83 +44,11 @@
    </string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>300</y>
-      <width>211</width>
-      <height>291</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
-     <item>
-      <widget class="QPushButton" name="ButtonDocuments">
-       <property name="text">
-        <string>Documents</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="ButtonReporting">
-       <property name="text">
-        <string>Reporting</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="ButtonParametres">
-       <property name="text">
-        <string>PARAMETRES</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>540</y>
-      <width>481</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_4">
-     <item>
-      <widget class="QPushButton" name="ButtonInformation">
-       <property name="text">
-        <string>Informations base</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_3">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="ButtonRestriction">
-       <property name="text">
-        <string>Niveau de restriction</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
       <x>420</x>
-      <y>120</y>
+      <y>110</y>
       <width>411</width>
       <height>141</height>
      </rect>
@@ -137,9 +64,9 @@
     <property name="geometry">
      <rect>
       <x>660</x>
-      <y>280</y>
+      <y>290</y>
       <width>191</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -150,9 +77,9 @@
     <property name="geometry">
      <rect>
       <x>390</x>
-      <y>280</y>
+      <y>290</y>
       <width>211</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -182,7 +109,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>50</y>
+      <y>40</y>
       <width>271</width>
       <height>191</height>
      </rect>
@@ -198,7 +125,7 @@
     <property name="geometry">
      <rect>
       <x>920</x>
-      <y>50</y>
+      <y>40</y>
       <width>311</width>
       <height>201</height>
      </rect>
@@ -210,14 +137,82 @@
      <pixmap>Image_interface/logo_euroserum.png</pixmap>
     </property>
    </widget>
+   <widget class="QPushButton" name="ButtonParametres">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>520</y>
+      <width>209</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PARAMETRES</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ButtonReporting">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>440</y>
+      <width>209</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Reporting</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ButtonDocuments">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>360</y>
+      <width>209</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Documents</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ButtonRestriction">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>580</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Niveau de restriction</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ButtonInformation">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>580</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Informations base</string>
+    </property>
+   </widget>
    <zorder>label_2</zorder>
-   <zorder>verticalLayoutWidget</zorder>
-   <zorder>horizontalLayoutWidget_2</zorder>
    <zorder>ButtonHygiene</zorder>
    <zorder>ButtonQualiter</zorder>
    <zorder>label</zorder>
    <zorder>label_4</zorder>
    <zorder>label_3</zorder>
+   <zorder>ButtonParametres</zorder>
+   <zorder>ButtonReporting</zorder>
+   <zorder>ButtonDocuments</zorder>
+   <zorder>ButtonRestriction</zorder>
+   <zorder>ButtonInformation</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
