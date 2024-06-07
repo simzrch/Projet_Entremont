@@ -1,6 +1,6 @@
 from Page import Page
 from PySide6.QtUiTools import QUiLoader
-from PySide6.QtWidgets import QLineEdit, QPushButton, QTableWidget, QTableWidgetItem
+from PySide6.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget, QPushButton, QHBoxLayout
 from Import_Base import Import_Base
 from PAG import PAG
 from RDR import RDR
@@ -48,14 +48,16 @@ class HygienePage(Page):
         connection = self.Import_BDD.Connection_BDD()
         cursor = connection.cursor()
         i = self.Num
-        print(i)
 
-        if (i == 0):
-            cursor.execute("SELECT * FROM `Feuil1` WHERE 1")
-            data = cursor.fetchall()
-        elif (i == 1):
-            cursor.execute("SELECT `ID`, `Groupe`, `BU`, `Site`, `Origine`, `Origine2`, `Datedebut`, `Heure`, `Datefin`, `Visité` FROM `Feuil1` WHERE 1")
-            data = cursor.fetchall()
+        cursor.execute("SELECT * FROM `Feuil1` WHERE 1")
+        data = cursor.fetchall()
+
+        for col in range(self.table_widget.columnCount()):
+            self.table_widget.setColumnHidden(col, False)
+
+        if (i == 1):
+            self.table_widget.setColumnHidden(3, True)  # Cache la colonne 4
+            self.table_widget.setColumnHidden(4, True)
         elif (i == 2):
             cursor.execute("SELECT `ID`, `Groupe`, `BU`, `Site` FROM `Feuil1` WHERE 1")
             data = cursor.fetchall()
@@ -63,8 +65,8 @@ class HygienePage(Page):
             cursor.execute("SELECT `ID`, `Groupe`, `BU`, `Site`, `Origine` FROM `Feuil1` WHERE 1")
             data = cursor.fetchall()
         elif (i == 4):
-            cursor.execute("SELECT `ID`, `Groupe`, `BU`, `Site`, `Datedebut`, `Fonction`, `Origine`, `Rédacteur/Rédactrice`, `Secteur`, `Ligne/Poste`, `Fonction2`, `Constat`, `Tâche`, `Commentaire(s)`, `Responsablesecteur`, `Datederéalisation`, `Datefin` FROM `Feuil1` WHERE 1")
-            data = cursor.fetchall()
+            self.table_widget.setColumnHidden(1, False)  # Cache la colonne 4
+            self.table_widget.setColumnHidden(2, False)
 
         #self.filtre(i)
         self.Table(data)
@@ -97,13 +99,10 @@ class HygienePage(Page):
         elif (i == 4):
             sql = "SELECT `ID`, `Groupe`, `BU`, `Site`, `Datedebut`, `Fonction`, `Origine`, `Rédacteur/Rédactrice`, `Secteur`, `Ligne/Poste`, `Fonction2`, `Constat`, `Tâche`, `Commentaire(s)`, `Responsablesecteur`, `Datederéalisation`, `Datefin` FROM `Feuil1` WHERE Secteur = %s"        
         
-        print("Numéro : ", i)
         values = (self.ui.Filtre.currentText(),)
-        print("Valeur : ", values)
-        print("SQL : ", sql)
         cursor.execute(sql, values)
         data = cursor.fetchall()
-        print("Data : ", data)
+
         self.Table(data)
 
 
@@ -155,6 +154,7 @@ class HygienePage(Page):
 
         self.PAG.Affichage()
         self.PAG.ui.BouttonModifier.hide()
+        self.PAG.ui.ButtonValide.show()
         self.Num = 4
         self.populate_table()
         self.PAG.Implementation_ComboBox()
