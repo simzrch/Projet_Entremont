@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1423</width>
-    <height>842</height>
+    <height>840</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -103,6 +103,9 @@
     </item>
    </layout>
   </widget>
+<<<<<<< HEAD
+  <widget class="QPushButton" name="ButtonRestriction">
+=======
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
@@ -144,6 +147,7 @@
    </layout>
   </widget>
   <widget class="QPushButton" name="ButtonRestriction1">
+>>>>>>> 7291f427333c3d1945282b7ace5690d6e695fd30
    <property name="geometry">
     <rect>
      <x>60</x>
@@ -165,8 +169,16 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    background-color: white;
+	color: black; /* Couleur du texte (blanc dans cet exemple) */
+    border: none;
+}
+</string>
+   </property>
    <property name="text">
-    <string>Higiène</string>
+    <string>Hygiène</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -175,9 +187,9 @@
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
-     <x>241</x>
-     <y>91</y>
-     <width>711</width>
+     <x>220</x>
+     <y>90</y>
+     <width>741</width>
      <height>731</height>
     </rect>
    </property>
@@ -196,6 +208,156 @@
      <height>361</height>
     </rect>
    </property>
+   <column>
+    <property name="text">
+     <string>ID</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Date_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>IDOrigineaction_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Referentielsqualite_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Item_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Chapitre_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Responsableremontee_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Secteurconcernee_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Equipementconcernee_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Typerisque_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Produitconcernee_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Constat_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Niveaupyramidequalite_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Mesureprise_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Actionimmediate_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Actiondifferee_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>n°DI_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Note_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Delairéalisation_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Daterealisation_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Responsableaction_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Contributeur_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Fichetraçabilite_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Quantite_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Blocage_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Affectationproduit_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Clientavertile_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Commentaires_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Efficaciteactions_tabledonnees</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Liendocument/photo_tabledonnees</string>
+    </property>
+   </column>
   </widget>
   <widget class="QTableWidget" name="tableWidget_2">
    <property name="geometry">
@@ -205,22 +367,6 @@
      <width>411</width>
      <height>351</height>
     </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>-10</x>
-     <y>0</y>
-     <width>1441</width>
-     <height>851</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap>Image_interface/Capture.PNG</pixmap>
    </property>
   </widget>
   <widget class="QComboBox" name="Filtre">
@@ -284,17 +430,129 @@
     <string>Filtre</string>
    </property>
   </widget>
+  <widget class="QScrollArea" name="scrollArea">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>90</y>
+     <width>181</width>
+     <height>611</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOn</enum>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QAbstractScrollArea::AdjustIgnored</enum>
+   </property>
+   <property name="widgetResizable">
+    <bool>false</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>152</width>
+      <height>609</height>
+     </rect>
+    </property>
+    <widget class="QPushButton" name="ButtonRisques">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>90</y>
+       <width>141</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Remonté des risque</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ButtonUnique">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>220</y>
+       <width>141</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Document unique</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ButtonVCSA">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>346</y>
+       <width>141</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>VCSA</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ButtonPAG">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>470</y>
+       <width>141</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Plan d'action 
+général</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1421</width>
+     <height>841</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>Image_interface/Capture.PNG</pixmap>
+   </property>
+  </widget>
   <zorder>label_2</zorder>
   <zorder>ButtonRestriction1</zorder>
   <zorder>ButtonAccueil</zorder>
   <zorder>horizontalLayoutWidget</zorder>
+<<<<<<< HEAD
+  <zorder>ButtonRestriction</zorder>
+=======
   <zorder>verticalLayoutWidget</zorder>
+>>>>>>> 7291f427333c3d1945282b7ace5690d6e695fd30
   <zorder>label</zorder>
   <zorder>stackedWidget</zorder>
   <zorder>tableWidget</zorder>
   <zorder>tableWidget_2</zorder>
   <zorder>Filtre</zorder>
   <zorder>label_3</zorder>
+  <zorder>scrollArea</zorder>
  </widget>
  <resources/>
  <connections/>
